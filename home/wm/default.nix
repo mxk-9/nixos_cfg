@@ -22,7 +22,6 @@ let
 		    networkmanagerapplet
 		    blueman
 		    i3lock-color
-		    flashfocus
 		];
 	};
 

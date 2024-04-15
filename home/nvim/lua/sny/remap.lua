@@ -4,8 +4,12 @@ vim.g.mapleader = " "
 local vc = vim.cmd
 
 kmset("n", "<leader>pv", vc.Ex)
-kmset("n", "<leader>co", ":e ~/.config/nvim/<CR>")
-kmset("n", "<leader>cr", ":so ~/.config/nvim/init.lua<CR>")
+
+-- Toggle wrap lines
+kmset("n", "<leader>l", ":set wrap!<CR>")
+
+-- No highlight
+kmset("n", "<leader>n", ":noh<CR>")
 
 -- Move selected text
 kmset("v", "J", ":m '>+1<CR>gv=gv")

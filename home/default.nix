@@ -11,13 +11,15 @@
 					source = ./cfg-files/kitty.conf;
 					recursive = true;
 				};
+
+				file.".tmux.conf".source = ./cfg-files/tmux.conf;
 			};
 
 			xdg.configFile.nvim.source = ./nvim;
+
 			imports = [
 				./shell
 				./themes.nix
-				# ./nvim
 				./packages
 				./wm
 			];
