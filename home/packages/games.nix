@@ -6,7 +6,7 @@
   home.packages = with pkgs; [
     wineWowPackages.stableFull wineWowPackages.fonts winetricks
     duckstation
-    minetest
+    # minetest
     prismlauncher
     # xonotic
     # openmw

@@ -6,9 +6,6 @@
 		users.sny = {
 			home = {
 				stateVersion = "23.11";
-				sessionVariables = {
-					EDITOR = "nvim";
-				};
 
 				file.".config/kitty/kitty.conf" = {
 					source = ./cfg-files/kitty.conf;
@@ -16,9 +13,11 @@
 				};
 			};
 
+			xdg.configFile.nvim.source = ./nvim;
 			imports = [
 				./shell
 				./themes.nix
+				# ./nvim
 				./packages
 				./wm
 			];

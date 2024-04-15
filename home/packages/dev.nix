@@ -37,9 +37,9 @@ let
 		home.packages = with pkgs; [ ripgrep nixd ];
 	};
 
-    hx = {
-        home.packages = with pkgs; [ helix dprint nil ];
-    };
+  hx = {
+    home.packages = with pkgs; [ helix dprint nil ];
+  };
 in {
 	imports = [
 		# Languages
@@ -51,7 +51,7 @@ in {
 		# Editors
 		# emacs
 		neovim
-        # hx
+		hx
 	];
 }
 

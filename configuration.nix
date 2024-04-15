@@ -54,6 +54,17 @@ let
 			};
 		};
 	};
+
+	nvim_ed = {
+		programs.neovim.enable = true;
+	};
+
+	helix_ed = {
+		environment.systemPackages = [ pkgs.helix ];
+	};
+
+	# defEd = helix_ed;
+	defEd = nvim_ed;
 in {
 	nix = {
 		settings = {
@@ -70,6 +81,7 @@ in {
 	documentation.dev.enable = true;
 
 	imports = [
+		defEd
 		android_setup
 		x11_setup
 		wm_base
@@ -82,9 +94,6 @@ in {
 		# ./virt-manager.nix
 		inputs.home-manager.nixosModule
 	];
-
-	environment.variables.EDITOR = "nvim";
-	programs.neovim.enable = true;
 
 	system.stateVersion = "23.11";
 }

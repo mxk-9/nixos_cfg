@@ -20,8 +20,6 @@
         nri = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --impure"; # for nix-ld
         nr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
 
-        e = "nvim";
-
         udu = "ud -u";
         udm = "ud -m";
 

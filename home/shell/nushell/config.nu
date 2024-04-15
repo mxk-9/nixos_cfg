@@ -34,6 +34,10 @@ def nix-cfg [] {
   nu -c $"($env.EDITOR) ./"
 }
 
+def e [params: string] {
+	nu -c $"($env.EDITOR) ($params)"
+}
+
 def nix-full-gc [] {
   ls /nix/var/nix/profiles/*link | drop 1 | each { |x| doas rm -v $x.name }
   ls /home/sny/.local/state/nix/profiles/home-manager-*-link | drop 1 | each { |x| rm -v $x.name }
