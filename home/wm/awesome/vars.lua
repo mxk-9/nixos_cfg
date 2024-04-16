@@ -26,7 +26,7 @@ i3lock \
 --date-str="" --time-str=""
  ]]
 
- LOCKER = LOCKER .. " -F -i /home/sny/Pictures/Wallpapers/Jason_Benjamin/spiral_perfecthue_1920x1200.jpg"
+LOCKER = LOCKER .. " -F -i ".. theme_path .. "spiral_perfecthue_1920x1200.jpg"
 
 TOUCHPAD_STATE = 1
 FONT = "JetBrains Mono 10"

@@ -24,14 +24,14 @@
         udm = "ud -m";
 
         cal = "cal --week-start mo";
-
-		tml = "tm -l";
-		tmv = "tm -v";
       };
 
       configFile.source = ./config.nu;
       envFile.source = ./env.nu;
       loginFile.source = ./login.nu;
+	  extraConfig = ''
+	  	${builtins.readFile ./tm_mess.nu}
+	  '';
     };
 
     starship = {

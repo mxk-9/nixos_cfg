@@ -1,5 +1,4 @@
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
 	sources = {
@@ -31,8 +30,6 @@ cmp.setup({
 				cmp.complete()
 			end
 		end),
-		['<Tab>'] = cmp_action.luasnip_supertab(),
-		['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 		['<C-Space>'] = cmp.mapping.complete(),
 	},
 

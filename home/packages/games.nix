@@ -1,15 +1,20 @@
 { pkgs, ... }:
-{
-  # For minecraft
-  programs.java.enable = true;
+let
+	minecraft = {
+		programs.java.enable = true;
+		home.packages = [ pkgs.prismlauncher ];
+	};
+in {
+	home.packages = with pkgs; [
+		wineWowPackages.stableFull wineWowPackages.fonts winetricks
+		duckstation
+		# minetest
+		# xonotic
+		# openmw
+		# lutris
+	];
 
-  home.packages = with pkgs; [
-    wineWowPackages.stableFull wineWowPackages.fonts winetricks
-    duckstation
-    # minetest
-    prismlauncher
-    # xonotic
-    # openmw
-    # lutris
-  ];
+	imports = [
+		minecraft
+	];
 }

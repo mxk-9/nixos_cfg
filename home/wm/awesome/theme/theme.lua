@@ -6,9 +6,6 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local naughty = require("naughty")
-local gears = require("gears")
-
 local theme = require("theme.colorschemes.dracula")
 
 theme.font = FONT
@@ -91,9 +88,9 @@ theme.titlebar_maximized_button_focus_active  = theme_path.."titlebar/maximized_
 --theme.wallpaper = theme_path.."delusion-abstract-h8.jpg"
 -- theme.wallpaper = theme_path.."wall.png"
 
-local jason_benjamin = "/home/sny/Pictures/Wallpapers/Jason_Benjamin/"
+-- local jason_benjamin = "/home/sny/Pictures/Wallpapers/Jason_Benjamin/"
 -- theme.wallpaper = jason_benjamin .. "orbital_perfecthue_2560x1600.jpg"
-theme.wallpaper = jason_benjamin .. "spiral_perfecthue_3840x2400.jpg"
+theme.wallpaper = theme_path .. "spiral_perfecthue_3840x2400.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = theme_path.."layouts/fairhw.png"

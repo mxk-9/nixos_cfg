@@ -1,4 +1,5 @@
 { pkgs, lib, inputs, ... }:
+# Move cursor to the end of file
 let
 	android_setup = {
 		programs.adb.enable = true;
@@ -34,9 +35,7 @@ let
 	
 		services.xserver.libinput = {
 			enable = true;
-			mouse = {
-				accelProfile = "flat";
-			};
+			mouse.accelProfile = "flat";
 			touchpad = {
 				accelProfile = "flat";
 				disableWhileTyping = false;
@@ -58,23 +57,24 @@ let
 		};
 	};
 
-	nvim_ed = { programs.neovim.enable = true; };
-
 	locale = {
-		i18n = {
-			defaultLocale = "en_US.UTF-8";
-			supportedLocales = [ "ru_RU.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
+		i18n = let
+			ru = "ru_RU.UTF-8";
+			en = "en_US.UTF-8";
+		in {
+			defaultLocale = en;
+			supportedLocales = [ "${ru}/UTF-8" "${en}/UTF-8" ];
 			extraLocaleSettings = {
-				LC_ADDRESS = "ru_RU.UTF-8";
-				LC_IDENTIFICATION = "ru_RU.UTF-8";
-				LC_MEASUREMENT = "ru_RU.UTF-8";
-				LC_MONETARY = "ru_RU.UTF-8";
-				LC_NAME = "ru_RU.UTF-8";
-				LC_NUMERIC = "ru_RU.UTF-8";
-				LC_PAPER = "ru_RU.UTF-8";
-				LC_TELEPHONE = "ru_RU.UTF-8";
-				LC_TIME = "ru_RU.UTF-8";
-				LC_MESSAGES = "en_US.UTF-8";
+				LC_ADDRESS = ru;
+				LC_IDENTIFICATION = ru;
+				LC_MEASUREMENT = ru;
+				LC_MONETARY = ru;
+				LC_NAME = ru;
+				LC_NUMERIC = ru;
+				LC_PAPER = ru;
+				LC_TELEPHONE = ru;
+				LC_TIME = ru;
+				LC_MESSAGES = en;
 			}; 
 		};
 
@@ -107,16 +107,13 @@ let
 
 	sys_utils = {
 		environment.systemPackages = with pkgs; [
+			tmux neovim
 			fd rsync tree
 			git wget curl
 			bat file
 			p7zip unzip rar unrar
-			htop hwinfo
-			tmux
-			pciutils
-			psmisc
-			hdparm
-			inxi
+			htop hwinfo inxi
+			psmisc pciutils hdparm
 		];
 	};
 
@@ -135,6 +132,7 @@ let
 				package = pkgs.mariadb;
 			};
 		};
+
 		environment.systemPackages = [ pkgs.mysql-workbench ];
 	};
 
@@ -149,6 +147,16 @@ let
 				};
 			})
 		];
+	};
+
+	user_sny = {
+		users.users.sny = {
+			isNormalUser = true;
+			home = "/home/sny";
+			description = "Sny Spyper";
+			extraGroups = [ "video" "audio" "networkmanager" "disk" ];
+			shell = pkgs.nushell;
+		};
 	};
 in {
 	nix = {
@@ -166,7 +174,6 @@ in {
 	documentation.dev.enable = true;
 
 	imports = [
-		nvim_ed
 		android_setup
 		x11_setup
 		wm_base
@@ -177,8 +184,8 @@ in {
 		steam_setup
 		# db_setup
 		mpv_setup
+		user_sny
 		./hardware
-		./user.nix
 		inputs.home-manager.nixosModule
 	];
 
