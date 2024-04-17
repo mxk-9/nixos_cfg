@@ -17,6 +17,10 @@
   hardware.pulseaudio.enable = false;
 
   environment.systemPackages = with pkgs; [
-    qjackctl helvum pavucontrol pulseaudio
+    qjackctl
+	helvum
+	easyeffects
+	pavucontrol
+	pulseaudio
   ];
 }

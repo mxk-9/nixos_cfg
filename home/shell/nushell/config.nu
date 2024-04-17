@@ -30,13 +30,18 @@ def ud [block_device: string, --mount (-m), --unmount (-u)] {
 	if ($unmount) { udisksctl unmount -b $block_device }
 }
 
-def nix-cfg [] {
-	cd /home/sny/nixos-cfg
-	nu -c $"($env.EDITOR) ./"
+def e [...params: string] {
+	mut args = ""
+
+	for $i in $params {
+		$args = $"($args) ($i)"
+	}
+	nu -c $"($env.EDITOR) ($args)"
 }
 
-def e [params: string] {
-	nu -c $"($env.EDITOR) ($params)"
+def nix-cfg [] {
+	cd /home/sny/nixos-cfg
+		nu -c $"($env.EDITOR) ./"
 }
 
 def nix-full-gc [] {

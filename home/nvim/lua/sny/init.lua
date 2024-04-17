@@ -13,6 +13,7 @@ vo.shell = "bash"
 -- Tabs and Spaces
 vo.tabstop = 4
 vo.shiftwidth = 4
+vo.cursorline = true
 -- vo.softtabstop = 4
 -- vo.expandtab = true
 -- vo.smartindent = true

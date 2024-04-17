@@ -45,7 +45,7 @@ in {
 		# Languages
 		go_setup
 		lua_setup
-		# cpp_setup
+		cpp_setup
 		# rust_setup
 
 		# Editors
