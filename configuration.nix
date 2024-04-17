@@ -185,7 +185,6 @@ in {
 		# db_setup
 		mpv_setup
 		user_sny
-		./hardware
 		inputs.home-manager.nixosModule
 	];
 

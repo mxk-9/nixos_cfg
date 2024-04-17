@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
 	ssh_cfg = {
 		services.openssh = {
@@ -14,6 +14,7 @@ let
 	};
 in {
 	networking.networkmanager.enable = true;
+	networking.useDHCP = lib.mkDefault true;
 
 	# Set your time zone.
 	time.timeZone = "Europe/Moscow";

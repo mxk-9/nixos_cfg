@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 {
-  nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.cudaSupport = false;
+
   hardware = {
     opengl = {
       enable = true;
@@ -19,5 +20,5 @@
 
   # services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.videoDrivers = [ "nvidia" "intel" ];
-  environment.systemPackages = [ pkgs.nvtop ];
+  environment.systemPackages = [ pkgs.nvtopPackages.nvidia ];
 }
