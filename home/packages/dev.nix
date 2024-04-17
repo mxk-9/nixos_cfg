@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
 	go_setup = {
-		home.packages = with pkgs; [ go gopls gcc clang delve revive ];
+		home.packages = with pkgs; [ go gopls gcc clang-tools delve revive ];
 		home.sessionVariables = {
 			GOTELEMETRY = "off";
 		};
