@@ -39,6 +39,10 @@ def e [...params: string] {
 	nu -c $"($env.EDITOR) ($args)"
 }
 
+def es [session: string] {
+	nu -c nvim -S $session
+}
+
 def nix-cfg [] {
 	cd /home/sny/nixos-cfg
 		nu -c $"($env.EDITOR) ./"

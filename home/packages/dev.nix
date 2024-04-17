@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
 	go_setup = {
-		home.packages = with pkgs; [ go gopls gcc delve revive ];
+		home.packages = with pkgs; [ go gopls gcc clang delve revive ];
 		home.sessionVariables = {
 			GOTELEMETRY = "off";
 		};
@@ -45,7 +45,7 @@ in {
 		# Languages
 		go_setup
 		lua_setup
-		cpp_setup
+		# cpp_setup
 		# rust_setup
 
 		# Editors
