@@ -4,12 +4,15 @@ def tm [
 	--new (-n)
 	--list_all (-l)
 	--list_active (-v)
+	--create_profile: string
+	--profile_path: string
 ] {
 	let profiles = {
 		work : /mnt/windows/Users/sny/WORK/,
 		home : /home/sny/,
 		learn_go : /home/sny/sandbox/gulag/learn_smth/,
 		eshka_go : /home/sny/sandbox/eshka_go/,
+		GOYLIB : /home/sny/sandbox/gaylibs/test_g/,
 	};
 
 	if ($list_all) {

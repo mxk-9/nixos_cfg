@@ -2,6 +2,7 @@
 {
 	home.packages = with pkgs; [
 		chromium
+		discord
 		kotatogram-desktop
 		remmina
 		qbittorrent

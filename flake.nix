@@ -17,8 +17,8 @@
 		, ...
 	}@inputs: 
 	let
-		# hostname = "Honor-NixOS";
-		hostname = "Ernmore-NixOS";
+		hostname = "Honor-NixOS";
+		# hostname = "Ernmore-NixOS";
 	system = "x86_64-linux";
 	pkgs = nixpkgs.legacyPackages.${system};
 	in {

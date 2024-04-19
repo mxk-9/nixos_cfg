@@ -5,7 +5,7 @@ $env.config = {
 	}
 }
 
-$env.PATH = ($env.PATH | split row (char esep) | append ([$nu.home-path .local bin] | path join))
+$env.PATH = ($env.PATH | split row (char esep) | append ([$nu.home-path .local bin] | path join) | append ([$nu.home-path go bin] | path join))
 
 def mkd [] {
 	# add normal formatting
@@ -40,7 +40,7 @@ def e [...params: string] {
 }
 
 def es [session: string] {
-	nu -c nvim -S $session
+	nu -c $"nvim -S ($session)"
 }
 
 def nix-cfg [] {

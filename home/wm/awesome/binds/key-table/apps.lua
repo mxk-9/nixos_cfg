@@ -49,7 +49,6 @@ return {
     {{M}, "#70", function() ass("gimp") end},
 
     {{M, M1}, "#69", function() ass("discord") end},
-    {{M, M1}, "Return", function() ass(editor_cmd) end},
     {{M}, "Return", function () awful.spawn(terminal) end},
 
     -- Screenshot
