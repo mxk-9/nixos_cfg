@@ -15,21 +15,18 @@
 		, nixpkgs
 		, home-manager
 		, ...
-	}@inputs: 
-	let
+	}@inputs: let
 		hostname = "Honor-NixOS";
 		# hostname = "Ernmore-NixOS";
-	system = "x86_64-linux";
-	pkgs = nixpkgs.legacyPackages.${system};
+		system = "x86_64-linux";
+		pkgs = nixpkgs.legacyPackages.${system};
 	in {
 		nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
+			inherit system;
 			specialArgs.inputs = inputs;
 			modules = [
 				./configuration.nix
-				home-manager.nixosModules.home-manager {
-				 imports = [./home];
-				}
+				home-manager.nixosModules.home-manager { imports = [ ./home ]; }
 				./hosts/${hostname}
 			];
 		};

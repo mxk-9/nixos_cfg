@@ -8,9 +8,10 @@ in {
 	home.packages = with pkgs; [
 		wineWowPackages.stableFull wineWowPackages.fonts winetricks
 		duckstation
-		# minetest
-		# xonotic
 		# openmw
+		# srb2
+		# xonotic
+		# minetest
 		# lutris
 	];
 

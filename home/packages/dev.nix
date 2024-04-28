@@ -6,9 +6,10 @@ let
 
 	go_setup = {
 		imports = [ gcc_base ]; # For CGO
-		home.packages = with pkgs; [ go gopls delve revive ];
-		home.sessionVariables = {
-			GOTELEMETRY = "off";
+		programs.nushell.environmentVariables.GOTELEMETRY = "off";
+		home = {
+			packages = with pkgs; [ go gopls delve revive ];
+			sessionVariables.GOTELEMETRY = "off";
 		};
 	};
 
@@ -39,7 +40,13 @@ let
 	};
 
 	hx = {
-		home.packages = with pkgs; [ helix dprint nil ];
+		home = {
+			packages = with pkgs; [ helix dprint nil ];
+			file.".config/helix/config.toml" = {
+				source = ../cfg-files/helix/config.toml;
+				recursive = true;
+			};
+		};
 	};
 in {
 	imports = [
@@ -50,9 +57,9 @@ in {
 		# rust_setup
 
 		# Editors
-		# emacs
 		neovim
 		hx
+		# emacs
 	];
 }
 

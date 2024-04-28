@@ -47,7 +47,6 @@ awful.rules.rules = {
               "ksnip",
               "feh",
               "mpv",
-			  "EGO"
             },
 
             -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -68,5 +67,12 @@ awful.rules.rules = {
         rule_any = {type = { "normal", "dialog" }},
         properties = {titlebars_enabled = false}
     },
+
+	{
+		rule_any = {
+			class = { "EGO" },
+		},
+		properties = { floating = true, ontop = true, placement = awful.placement.centered }
+	}
 }
 -- }}}

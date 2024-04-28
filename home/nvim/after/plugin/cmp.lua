@@ -6,9 +6,9 @@ cmp.setup({
 		{name = 'nvim_lua'},
 	},
 
-	completion = {
-		autocomplete = false
-	},
+	-- completion = {
+	-- 	autocomplete = true
+	-- },
 
 	mapping = {
 		-- ['<C-y>'] = cmp.mapping.confirm({select = false}),

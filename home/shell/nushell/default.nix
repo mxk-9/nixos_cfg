@@ -3,9 +3,11 @@
 	programs = {
 		nushell = {
 			enable = true;
-
 			shellAliases = {
 				l = "ls";
+				la = "ls -a";
+
+				df = "df -h";
 
 				mk = "mkdir";
 

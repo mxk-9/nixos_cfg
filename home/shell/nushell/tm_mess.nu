@@ -37,6 +37,9 @@ def tm [
 
 def tma [profile: string] {
 	tm -a -p $profile
+	if $env.LAST_EXIT_CODE != 0 {
+		tm -n -p $profile
+	}
 }
 
 def tmn [profile: string] {
@@ -45,3 +48,8 @@ def tmn [profile: string] {
 
 alias tml = tm -l
 alias tmv = tm -v
+
+alias tmah = tma home
+alias tmaw = tma work
+alias tmnh = tmn home
+alias tmnw = tmn work

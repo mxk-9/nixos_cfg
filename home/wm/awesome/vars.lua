@@ -4,7 +4,7 @@ local gears     = require("gears")
 modkey = "Mod4"
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
-editor = os.getenv("EDITOR") or "hx"
+editor = os.getenv("EDITOR")
 editor_cmd = terminal .. " -e " .. editor
 -- home_cfg = gears.filesystem.get_xdg_config_home().."awesome/"
 home_cfg = "/home/sny/nixos-cfg/home/wm/awesome/"

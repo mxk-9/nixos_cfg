@@ -8,10 +8,13 @@ let
 			};
 		};
 
-		home.file.".xinitrc" = {
-			text = ''
-				exec dbus-launch --exit-with-session --sh-syntax awesome -c ${builtins.toString ./awesome/rc.lua} --search ${builtins.toString ./awesome}
-			'';
+		home.file.".xinitrc" = let
+			awm = /home/sny/nixos-cfg/home/wm/awesome;
+		in {
+			# text = ''
+			# 	exec dbus-launch --exit-with-session --sh-syntax awesome -c ${builtins.toString ./awesome/rc.lua} --search ${builtins.toString ./awesome}
+			# '';
+			text = "exec dbus-launch --exit-with-session --sh-syntax awesome -c ${awm}/rc.lua --search ${awm}";
 		};
 	};
 

@@ -7,15 +7,6 @@ $env.config = {
 
 $env.PATH = ($env.PATH | split row (char esep) | append ([$nu.home-path .local bin] | path join) | append ([$nu.home-path go bin] | path join))
 
-def mkd [] {
-	# add normal formatting
-	let curr_date = (date now | date to-table)
-	let year = ($curr_date.year).0
-	let month = ($curr_date.month).0
-	let day = ($curr_date.day).0
-	mkdir $"($year)-($month)-($day)"
-}
-
 def gv [...files: string] {
 	pueue add gwenview ...$files
 }
@@ -40,18 +31,34 @@ def e [...params: string] {
 }
 
 def es [session: string] {
-	nu -c $"nvim -S ($session)"
+	if $env.EDITOR == "nvim" {
+		nu -c $"nvim -S ($session)"
+	} else {
+		print "This function works only for nvim! (nvim -S <Session.vim>)"
+	}
 }
 
 def nix-cfg [] {
 	cd /home/sny/nixos-cfg
-		nu -c $"($env.EDITOR) ./"
+	nu -c $"($env.EDITOR) ./"
 }
 
 def nix-full-gc [] {
-	ls /nix/var/nix/profiles/*link | drop 1 | each { |x| doas rm -v $x.name }
-	ls /home/sny/.local/state/nix/profiles/home-manager-*-link | drop 1 | each { |x| rm -v $x.name }
+	ls /nix/var/nix/profiles/*link | get name | drop 1 | each { |x| doas rm -v $x }
+	ls /home/sny/.local/state/nix/profiles/home-manager-*-link | get name | drop 1 | each { |x| rm -v $x }
 
 	nix store gc -v
 	doas nix-collect-garbage -d -vvvvv
+}
+
+def duh [...files: string] {
+	for i in $files {
+		let data = (du -a $i | get path apparent)
+		print $"($data.1.0) : ($data.0.0)"
+	}
+}
+
+def --env mkcd [path: string] {
+	mkdir $path
+	cd $path
 }

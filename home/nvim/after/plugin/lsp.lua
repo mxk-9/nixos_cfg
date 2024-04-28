@@ -15,12 +15,4 @@ require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.nushell.setup{}
 require'lspconfig'.nixd.setup{}
 require'lspconfig'.lua_ls.setup(lua_opts)
-
---
--- require('mason').setup({})
--- require('mason-lspconfig').setup({
--- 	ensure_installed = { "gopls", "clangd" },
--- 	handlers = {
--- 		lsp_zero.default_setup,
--- 	},
--- })
+require'lspconfig'.pylsp.setup{}

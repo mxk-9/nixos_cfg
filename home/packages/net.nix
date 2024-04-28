@@ -3,7 +3,7 @@
 	home.packages = with pkgs; [
 		chromium
 		discord
-		kotatogram-desktop
+		telegram-desktop
 		remmina
 		qbittorrent
 		tor-browser-bundle-bin

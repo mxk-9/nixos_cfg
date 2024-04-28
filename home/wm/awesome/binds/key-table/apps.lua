@@ -45,7 +45,7 @@ return {
     -- Favorite apps
     {{M}, "#67", function() ass("chromium") end},
     {{M}, "#68", function() ass("pavucontrol") end},
-    {{M}, "#69", function() ass("kotatogram-desktop") end},
+    {{M}, "#69", function() ass("telegram-desktop") end},
     {{M}, "#70", function() ass("gimp") end},
 
     {{M, M1}, "#69", function() ass("discord") end},

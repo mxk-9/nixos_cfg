@@ -16,7 +16,6 @@ let
 			light.enable = true;
 			dconf.enable = true;
 		};
-
 	};
 
 	x11_setup = {
