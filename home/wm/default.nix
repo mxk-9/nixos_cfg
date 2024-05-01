@@ -43,5 +43,6 @@ in {
 		awesome_wm
 		base_pkgs
 		x11_pkgs
+		./themes.nix
 	];
 }

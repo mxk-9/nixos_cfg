@@ -19,7 +19,6 @@
 
 			imports = [
 				./shell
-				./themes.nix
 				./packages
 				./wm
 			];

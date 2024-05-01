@@ -88,7 +88,10 @@ let
 	fonts = {
 		fonts.packages = with pkgs; [
 			noto-fonts
+			noto-fonts-extra
 			noto-fonts-cjk
+			noto-fonts-cjk-sans
+			noto-fonts-color-emoji
 			noto-fonts-emoji
 			liberation_ttf
 			fira-code
@@ -101,6 +104,8 @@ let
 			dina-font
 			proggyfonts
 			corefonts
+			vistafonts
+			vistafonts-chs
 		];
 	};
 

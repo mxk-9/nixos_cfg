@@ -7,12 +7,12 @@ let
 in {
 	home.packages = with pkgs; [
 		wineWowPackages.stableFull wineWowPackages.fonts winetricks
+		lutris
 		duckstation
 		# openmw
 		# srb2
 		# xonotic
 		# minetest
-		# lutris
 	];
 
 	imports = [

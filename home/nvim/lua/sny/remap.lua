@@ -16,9 +16,20 @@ kmset("n", "<leader>T", ":terminal<CR>:set nonumber<CR>:set norelativenumber<CR>
 kmset("n", "<leader>t", ":tabnew<CR>")
 
 -- Saving file
-kmset("n", "<C-s>", ":w<CR>")
-kmset("i", "<C-s>", "<Esc>:w<CR>")
-kmset("v", "<C-s>", "<Esc>:w<CR>")
+kmset("n", "<C-s>", ":LspZeroFormat<CR>:w<CR>")
+kmset("i", "<C-s>", "<Esc>:LspZeroFormat<CR>:w<CR>")
+kmset("v", "<C-s>", "<Esc>:LspZeroFormat<CR>:w<CR>")
+
+
+-- Make a session and quit
+kmset("n", "<leader>Q", ":mks!<CR>:xa<CR>")
+
+-- Remap for esc))
+kmset("i", "jj", "<Esc>")
+
+-- Go doc
+kmset("n", "<leader>gd", ":tabnew<CR>:set filetype=go<CR>:r!go doc ")
+kmset("n", "<leader>gD", ":tabnew<CR>:set filetype=go<CR>:r!go doc -src -all -u ")
 
 -- Toggle number line
 kmset("n", "<leader>L", ":set number!<CR>:set relativenumber!<CR>")
