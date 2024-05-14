@@ -4,12 +4,20 @@ let
 		programs.java.enable = true;
 		home.packages = [ pkgs.prismlauncher ];
 	};
+
+	wine = {
+		home.packages = with pkgs; [
+			wineWowPackages.stableFull
+			wineWowPackages.fonts
+			winetricks
+		];
+	};
 in {
 	home.packages = with pkgs; [
-		wineWowPackages.stableFull wineWowPackages.fonts winetricks
 		lutris
 		duckstation
-		# openmw
+		flycast
+		openmw
 		# srb2
 		# xonotic
 		# minetest
@@ -17,5 +25,6 @@ in {
 
 	imports = [
 		minecraft
+		wine
 	];
 }

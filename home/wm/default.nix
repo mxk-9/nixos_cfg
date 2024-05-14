@@ -1,6 +1,31 @@
 { pkgs, ... }:
 let
+	base_pkgs = {
+		home.packages = with pkgs; [
+		    kitty kitty-themes
+		    glib
+		    networkmanagerapplet
+		    blueman
+			xdotool
+			xorg.xwininfo
+		];
+	};
+
+	x11_pkgs = {
+		imports = [ base_pkgs ];
+		home.packages = with pkgs; [
+			xdragon
+			xclip
+			xdg-utils
+			ueberzug
+			unclutter-xfixes
+			picom
+			warpd
+		];
+	};
+
 	awesome_wm = {
+		imports = [ x11_pkgs ];
 		xsession.windowManager = {
 			awesome = {
 				enable = true;
@@ -11,38 +36,36 @@ let
 		home.file.".xinitrc" = let
 			awm = /home/sny/nixos-cfg/home/wm/awesome;
 		in {
-			# text = ''
-			# 	exec dbus-launch --exit-with-session --sh-syntax awesome -c ${builtins.toString ./awesome/rc.lua} --search ${builtins.toString ./awesome}
-			# '';
 			text = "exec dbus-launch --exit-with-session --sh-syntax awesome -c ${awm}/rc.lua --search ${awm}";
 		};
-	};
 
-	base_pkgs = {
+		home.file.".config/awesome" = {
+			source = ./awesome;
+			recursive = true;
+		};
+
 		home.packages = with pkgs; [
-		    kitty kitty-themes
-		    glib
-		    networkmanagerapplet
-		    blueman
 		    i3lock-color
 		];
 	};
 
-	x11_pkgs = {
-		home.packages = with pkgs; [
-    		xdragon
-    		xclip
-    		xdg-utils
-    		ueberzug
-    		unclutter-xfixes
-    		picom warpd
+	i3_wm = {
+		imports = [
+			x11_pkgs
+			./i3wm
 		];
+
+		home.packages = with pkgs; [
+			i3lock-color
+			maim
+		];
+
+		home.file.".xinitrc".text = "exec dbus-launch --exit-with-session --sh-syntax i3";
 	};
 in {
 	imports = [
-		awesome_wm
-		base_pkgs
-		x11_pkgs
+		# awesome_wm
+		i3_wm
 		./themes.nix
 	];
 }

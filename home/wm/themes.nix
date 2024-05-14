@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, lib, ...}:
 {
 	dconf.settings = {
 		"org/gnome/desktop/interface" = {
@@ -27,4 +27,6 @@
 		platformTheme.name = "gtk";
 		style.name = "gtk2";
 	};
+
+	home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "gtk";
 }

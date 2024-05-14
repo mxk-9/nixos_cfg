@@ -22,6 +22,7 @@ kmset("v", "<C-s>", "<Esc>:LspZeroFormat<CR>:w<CR>")
 
 
 -- Make a session and quit
+kmset("n", "<leader>q", ":mks!<CR>")
 kmset("n", "<leader>Q", ":mks!<CR>:xa<CR>")
 
 -- Remap for esc))

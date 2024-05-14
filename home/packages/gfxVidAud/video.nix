@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     kdenlive
-    ffmpeg
+    ffmpeg_7-full
     obs-studio
   ];
 }

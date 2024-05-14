@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 {
-  nixpkgs.config.cudaSupport = false;
+  nixpkgs.config.cudaSupport = true;
 
   hardware = {
     opengl = {

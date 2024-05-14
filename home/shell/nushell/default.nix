@@ -23,12 +23,16 @@
 				nr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
 				nd = "nix develop";
 
-				udu = "ud -u";
-				udm = "ud -m";
+				U = "ud -u";
+				M = "ud -m";
+
+				U1 = "ud -u --block_device /dev/sda1";
+				M1 = "ud -m --block_device /dev/sda1";
 
 				cal = "cal --week-start mo";
 
 				ez = "es Session.vim";
+				rsync = "rsync -r --info=progress2 --info=name0";
 			};
 
 			configFile.source = ./config.nu;
@@ -52,7 +56,5 @@
 		};
 	};
 
-	home.packages = with pkgs; [
-		pueue
-	];
+	home.packages = with pkgs; [pueue];
 }

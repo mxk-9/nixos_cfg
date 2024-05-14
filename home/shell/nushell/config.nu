@@ -11,14 +11,19 @@ def gv [...files: string] {
 	pueue add gwenview ...$files
 }
 
-def ud [block_device: string, --mount (-m), --unmount (-u)] {
+def ud [--block_device: string, --mount (-m), --unmount (-u), --hdparm (-h)] {
 	if ($mount and $unmount) {
 		print "You cannot use keys --mount and --unmount at the same time"
 		return 1
 	}
 
 	if ($mount) { udisksctl mount -b $block_device }
-	if ($unmount) { udisksctl unmount -b $block_device }
+	if ($unmount) {
+		udisksctl unmount -b $block_device
+		if ($hdparm) {
+			doas hdparm -Y $block_device
+		}
+	}
 }
 
 def e [...params: string] {

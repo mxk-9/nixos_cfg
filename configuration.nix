@@ -37,6 +37,11 @@ let
 			mouse.accelProfile = "flat";
 			touchpad = {
 				accelProfile = "flat";
+				additionalOptions = '''';
+				clickMethod = "clickfinger";
+				# scrollMethod = "twofinger";
+				tapping = true;
+				tappingDragLock = false; # Hmmm
 				disableWhileTyping = false;
 			};
 		};
@@ -119,6 +124,7 @@ let
 			htop hwinfo inxi
 			psmisc pciutils hdparm
 		];
+
 	};
 
 	steam_setup = {

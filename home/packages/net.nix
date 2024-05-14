@@ -2,6 +2,7 @@
 {
 	home.packages = with pkgs; [
 		chromium
+		thunderbird
 		discord
 		telegram-desktop
 		remmina
