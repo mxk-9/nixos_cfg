@@ -22,6 +22,7 @@ in {
 
 			# Apps
 			"${M}+p"  = "exec rofi -show drun";
+			"${M}+d"  = "exec rofi -show window";
 			"${M}+z"  = "exec sh -c 'maim -s | xclip -selection clipboard -t image/png' show drun";
 			"${MS}+z" = "exec sh -c 'maim | xclip -selection clipboard -t image/png' show drun";
 			"${C}+${M1}+l" = "exec locker_command";
@@ -55,6 +56,9 @@ in {
 			"${M}+j" = "focus down";
 			"${M}+k" = "focus up";
 			"${M}+l" = "focus right";
+
+			"${M}+a" = "focus parent";
+			"${MS}+a" = "focus child";
 
 			# Split current object
 			"${MS}+minus" = "splitv";

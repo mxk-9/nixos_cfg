@@ -16,8 +16,9 @@ in {
 	home.packages = with pkgs; [
 		lutris
 		duckstation
+		pcsx2
 		flycast
-		openmw
+		# openmw
 		# srb2
 		# xonotic
 		# minetest

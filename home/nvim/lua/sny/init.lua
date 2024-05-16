@@ -5,6 +5,9 @@ local vo = vim.opt
 local vc = vim.cmd
 local vw = vim.wo
 
+-- Setip title
+vo.title = true
+
 -- vc.colorscheme "catppuccin-mocha"
 vc.colorscheme "bogster"
 

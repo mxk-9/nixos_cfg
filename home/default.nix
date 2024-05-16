@@ -21,6 +21,7 @@
 				./shell
 				./packages
 				./wm
+				./firefox
 			];
 		};
 	};

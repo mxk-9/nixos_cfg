@@ -60,7 +60,6 @@ in {
 
 		# Editors
 		neovim
-		hx
 	];
 }
 

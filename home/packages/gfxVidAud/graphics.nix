@@ -2,9 +2,8 @@
 {
   home.packages = with pkgs; [
     gimp
-    # krita
+    mypaint
     gwenview
-    scrot
     gpick
     blender
   ];
