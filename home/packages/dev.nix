@@ -53,7 +53,7 @@ let
 in {
 	imports = [
 		# Languages
-		# rust_setup
+		rust_setup
 		cpp_setup
 		go_setup
 		lua_setup

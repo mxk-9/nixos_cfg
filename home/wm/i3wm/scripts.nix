@@ -47,6 +47,10 @@ let
 		-B Auto 'xrandr --auto; kill -9 $(pidof i3-nagbar)' \
 		-B 'Expand to the right' 'xrandr --output HDMI1 --auto --right-of eDP1; kill -9 $(pidof i3-nagbar)' \
 		-B Mirror 'xrandr --output HDMI1 --auto --same-as eDP1; kill -9 $(pidof i3-nagbar)' \
+
+		killall warpd
+		wait $!
+		warpd
 	'';
 in {
 	home.packages = [

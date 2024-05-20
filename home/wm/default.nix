@@ -39,11 +39,6 @@ let
 			text = "exec dbus-launch --exit-with-session --sh-syntax awesome -c ${awm}/rc.lua --search ${awm}";
 		};
 
-		home.file.".config/awesome" = {
-			source = ./awesome;
-			recursive = true;
-		};
-
 		home.packages = with pkgs; [
 		    i3lock-color
 		];

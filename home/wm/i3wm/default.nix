@@ -48,6 +48,7 @@ in {
 			exec_always picom --vsync
 			exec_always unclutter --timeout 1 --jitter 5 --ignore-scrolling
 			exec dunst
+			exec warpd
 		'';
 	};
 

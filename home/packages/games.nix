@@ -10,11 +10,11 @@ let
 			wineWowPackages.stableFull
 			wineWowPackages.fonts
 			winetricks
+			lutris
 		];
 	};
 in {
 	home.packages = with pkgs; [
-		lutris
 		duckstation
 		pcsx2
 		flycast

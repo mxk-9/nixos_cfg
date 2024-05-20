@@ -28,3 +28,4 @@ require 'lspconfig'.nushell.setup {}
 require 'lspconfig'.nixd.setup {}
 require 'lspconfig'.lua_ls.setup(lua_opts)
 require 'lspconfig'.pylsp.setup {}
+require 'lspconfig'.rust_analyzer.setup {}
