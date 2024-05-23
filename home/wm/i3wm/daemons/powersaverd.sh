@@ -1,33 +1,41 @@
 PID_FILE=/home/sny/.powersaverd.pid
 
 get_status() {
-	echo $(cat /sys/class/power_supply/BAT*/status)
+  st=$(cat /sys/class/power_supply/BAT*/status)
+  
+  case $st in
+    "Charging")    echo 1 ;;
+    "Discharging") echo 0 ;;
+  esac
+}
+
+get_profile() {
+  pr=$(powerprofilesctl get)
+
+  case $pr in
+    "performance") echo 1 ;;
+    "power-saver") echo 0 ;;
+  esac
 }
 
 change_status() {
 	case $1 in
-		"Discharging")
-			powerprofilesctl set power-saver
-		;;
-		
-		"Charging")
-			powerprofilesctl set performance
-		;;
+		0) powerprofilesctl set power-saver ;;
+		1) powerprofilesctl set performance ;;
 	esac
 }
 
 daemon() {
-	status=$(get_status)
-
 	while true; do
-		sleep 3m
-		current=$(get_status)
+		sleep 1m
+		battery=$(get_status)
+        profile=$(get_profile)
 		
-		if [[ $current != $status ]]; then
-			change_status $current
-			status=$current
-		fi
+        if [ $battery != $profile ]; then
+          change_status $battery
+        fi
 
+        echo "$battery, $profile"
 	done
 }
 
