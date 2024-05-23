@@ -33,11 +33,11 @@ let
 			};
 		};
 
-		home.file.".xinitrc" = let
-			awm = /home/sny/nixos-cfg/home/wm/awesome;
-		in {
-			text = "exec dbus-launch --exit-with-session --sh-syntax awesome -c ${awm}/rc.lua --search ${awm}";
-		};
+		# home.file.".xinitrc" = let
+		# 	awm = /home/sny/nixos-cfg/home/wm/awesome;
+		# in {
+		# 	text = "exec dbus-launch --exit-with-session --sh-syntax awesome -c ${awm}/rc.lua --search ${awm}";
+		# };
 
 		home.packages = with pkgs; [
 		    i3lock-color
