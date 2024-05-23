@@ -61,6 +61,12 @@ let
 					; noPass = true
 					; cmd = "hdparm"
 					;}
+
+					{ users = [ "sny" ]
+					; runAs = "root"
+					; noPass = true
+					; cmd = "nixos-rebuild"
+					;}
 				];
 			};
 			sudo.enable = false;
