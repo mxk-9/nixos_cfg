@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     zathura
-    libreoffice
+    libreoffice-qt
     keepassxc
   ];
 }

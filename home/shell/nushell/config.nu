@@ -3,6 +3,7 @@ $env.config = {
 	table: {
 		mode: heavy
 	}
+	edit_mode: vi
 }
 
 $env.PATH = ($env.PATH | split row (char esep) | append ([$nu.home-path .local bin] | path join) | append ([$nu.home-path go bin] | path join))
@@ -67,3 +68,21 @@ def --env mkcd [path: string] {
 	mkdir $path
 	cd $path
 }
+
+def math_pow [
+a: int,
+n: int,
+] {
+	if $n == 0 {
+		return 1
+	}
+
+	if $n > 1 {
+		mut res = 1
+		for i in 1..$n {
+			$res = $res * $a
+		}
+		return $res
+	}
+}
+

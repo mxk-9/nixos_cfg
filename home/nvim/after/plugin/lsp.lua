@@ -1,9 +1,21 @@
 local lsp_zero = require('lsp-zero')
 local lua_opts = lsp_zero.nvim_lua_ls()
 
+local lsp_format_on_save = function(bufnr)
+	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	vim.api.nvim_create_autocmd('BufWritePre', {
+		group = augroup,
+		buffer = bubfnr,
+		callback = function()
+			vim.lsp.buf.format()
+		end,
+	})
+end
+
 lsp_zero.on_attach(function(client, bufnr)
 	-- see :help lsp-zero-keybindings
 	lsp_zero.default_keymaps({ buffer = bufnr })
+	lsp_format_on_save(bufnr)
 end)
 
 -- Нормальный вывод ошибок
@@ -29,3 +41,4 @@ require 'lspconfig'.nixd.setup {}
 require 'lspconfig'.lua_ls.setup(lua_opts)
 require 'lspconfig'.pylsp.setup {}
 require 'lspconfig'.rust_analyzer.setup {}
+require 'lspconfig'.jsonnet_ls.setup {}

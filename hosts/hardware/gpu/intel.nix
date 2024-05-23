@@ -16,6 +16,8 @@
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
+	  libGL
     ];
+	setLdLibraryPath = true;
   };
 }

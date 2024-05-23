@@ -16,9 +16,9 @@ kmset("n", "<leader>T", ":terminal<CR>:set nonumber<CR>:set norelativenumber<CR>
 kmset("n", "<leader>t", ":tabnew<CR>")
 
 -- Saving file
-kmset("n", "<C-s>", ":LspZeroFormat<CR>:w<CR>")
-kmset("i", "<C-s>", "<Esc>:LspZeroFormat<CR>:w<CR>")
-kmset("v", "<C-s>", "<Esc>:LspZeroFormat<CR>:w<CR>")
+kmset("n", "<C-s>", ":w<CR>")
+kmset("i", "<C-s>", "<Esc>:w<CR>")
+kmset("v", "<C-s>", "<Esc>:w<CR>")
 
 
 -- Make a session and quit

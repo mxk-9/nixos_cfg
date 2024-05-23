@@ -78,24 +78,28 @@ in {
 		};
 
 		# Resizing
-		modes.resize = {
-			"h" = "resize shrink width  25px";
-			"j" = "resize grow   height 25px";
-			"k" = "resize shrink height 25px";
-			"l" = "resize grow   width  25px";
+		modes = {
+			resize = {
+				"h" = "resize shrink width  25px";
+				"j" = "resize grow   height 25px";
+				"k" = "resize shrink height 25px";
+				"l" = "resize grow   width  25px";
 
-			"${S}+h" = "resize shrink width  35px";
-			"${S}+j" = "resize grow   height 35px";
-			"${S}+k" = "resize shrink height 35px";
-			"${S}+l" = "resize grow   width  35px";
+				"${S}+h" = "resize shrink width  35px";
+				"${S}+j" = "resize grow   height 35px";
+				"${S}+k" = "resize shrink height 35px";
+				"${S}+l" = "resize grow   width  35px";
 
-			"${C}+h" = "resize shrink width  60px";
-			"${C}+j" = "resize grow   height 60px";
-			"${C}+k" = "resize shrink height 60px";
-			"${C}+l" = "resize grow   width  60px";
+				"${C}+h" = "resize shrink width  60px";
+				"${C}+j" = "resize grow   height 60px";
+				"${C}+k" = "resize shrink height 60px";
+				"${C}+l" = "resize grow   width  60px";
 
-			"Return" = "mode default";
-			"Escape" = "mode default";
+				"Return" = "mode default";
+				"Escape" = "mode default";
+			};
 		};
+
+		# Moving floating window
 	};
 }

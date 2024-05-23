@@ -39,9 +39,8 @@ let
 				accelProfile = "flat";
 				additionalOptions = '''';
 				clickMethod = "clickfinger";
-				# scrollMethod = "twofinger";
 				tapping = true;
-				tappingDragLock = false; # Hmmm
+				tappingDragLock = false;
 				disableWhileTyping = false;
 			};
 		};
@@ -51,11 +50,18 @@ let
 		security = {
 			doas = {
 				enable = true;
-				extraRules = [{
-					users = [ "sny" ];
-					keepEnv = true;
-					persist = true;
-				}];
+				extraRules = [
+					{ users = [ "sny" ]
+					; keepEnv = true
+					; persist = true
+					;}
+
+					{ users = [ "sny" ]
+					; runAs = "root"
+					; noPass = true
+					; cmd = "hdparm"
+					;}
+				];
 			};
 			sudo.enable = false;
 		};
@@ -165,8 +171,12 @@ let
 			home = "/home/sny";
 			description = "Sny Spyper";
 			extraGroups = [ "video" "audio" "networkmanager" "disk" ];
-			shell = pkgs.nushell;
 		};
+
+		users.users.sny.shell = pkgs.zsh;
+		programs.zsh.enable = true;
+
+		# users.users.sny.shell = pkgs.nushell;
 	};
 in {
 	nix = {

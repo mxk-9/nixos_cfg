@@ -55,7 +55,10 @@ let
 			maim
 		];
 
-		home.file.".xinitrc".text = "exec dbus-launch --exit-with-session --sh-syntax i3";
+		home.file.".xinitrc".text = "
+		rm /home/sny/.zsh_history
+		exec dbus-launch --exit-with-session --sh-syntax i3
+		";
 	};
 in {
 	imports = [

@@ -29,7 +29,7 @@ let
 	};
 
 	neovim = {
-		home.packages = with pkgs; [ ripgrep nixd ];
+		home.packages = with pkgs; [ ripgrep nixd jsonnet-language-server ];
 	};
 
 	hx = {
@@ -61,5 +61,6 @@ in {
 		# Editors
 		neovim
 	];
+
 }
 

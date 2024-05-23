@@ -4,6 +4,10 @@
 		enableCompletion = true;
 		defaultKeymap = "emacs";
 		syntaxHighlighting.enable = true;
+		autosuggestion = {
+			enable = true;
+			highlight = "fg=#ff0ff,bg=cyan,bold,underline";
+		};
 		oh-my-zsh = {
 			enable = true;
 			plugins = [
@@ -12,7 +16,16 @@
 			theme = "fox";
 		};
 		initExtra = ''
-			export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin
+			export PATH=$PATH:$HOME/.local/bin
+			${builtins.readFile ./tm.zsh}
+			${builtins.readFile ./ud.zsh}
+		'';
+
+		loginExtra = ''
+			if [[ $(pgrep -x "X") == "" ]]; then
+				startx
+				exit
+			fi
 		'';
 
 		shellGlobalAliases = {
@@ -35,15 +48,9 @@
 			nr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
 			nd = "nix develop";
 
-			# U = "ud -u";
-			# M = "ud -m";
-			#
-			# U1 = "ud -u --block_device /dev/sda1";
-			# M1 = "ud -m --block_device /dev/sda1";
-
 			e = "nvim";
-			es = "nvim -s";
-			ez = "es Session.vim";
+			es = "nvim -S";
+			ez = "nvim -S Session.vim";
 			rsync = "rsync -r --info=progress2 --info=name0";
 		};
 	};
