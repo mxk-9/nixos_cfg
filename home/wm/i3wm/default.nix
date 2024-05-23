@@ -62,6 +62,6 @@ in {
     ./dunst.nix
     ./floating.nix
     ./colors.nix
-    ./daemons.nix
+    ./daemons
   ];
 }
