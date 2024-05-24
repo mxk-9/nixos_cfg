@@ -45,13 +45,12 @@ in {
       exec_always nm-applet
       exec_always blueman-applet
       exec_always keepassxc
-      exec_always picom --vsync
       exec_always unclutter --timeout 1 --jitter 5 --ignore-scrolling
 
       exec_always autoscreend.sh restart
       exec_always powersaverd.sh restart
+
       exec dunst
-      exec warpd
     '';
   };
 
