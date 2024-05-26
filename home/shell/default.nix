@@ -6,8 +6,11 @@ let
 			echo "cut_yt <from> <to> <link>"
 			exit
 		fi
+        echo "$1"
+        echo "$2"
+        echo "$3"
 
-		yt-dlp --external-downloader ffmpeg --external-downloader-args "ffmpeg_i: -ss $0 -to $1" $2
+		yt-dlp --external-downloader ffmpeg --external-downloader-args "ffmpeg_i: -ss $1 -to $2" $3
 	'';
 
 	ffmpegReduceQuality = pkgs.writeShellScriptBin "ffreq" ''
@@ -17,7 +20,7 @@ let
 			exit
 		fi
 
-		ffmpeg -i $1 -crf 35 -vcodec libx265 -vf fps=25,scale=-1:720 -ac 1 -c:a aac -b:a 96k $1
+		ffmpeg -i $1 -crf 35 -vcodec libx265 -vf fps=25,scale=-1:720 -ac 1 -c:a aac -b:a 96k $2
 	'';
 in {
 	imports = [

@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 {
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.cudaSupport = true;
 
   hardware = {
     opengl = {
@@ -11,9 +11,9 @@
 
     nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = false; # maybe should disable
-      open = false; # do not use NVIDIA's open source kernel module
-      nvidiaSettings = true; # enable GUI nvidia settings
+      powerManagement.enable = false;
+      open = false;
+      nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };

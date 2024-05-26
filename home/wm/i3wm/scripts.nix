@@ -24,12 +24,12 @@ let
 		-t warning \
 		-B 'Power saver' 'powerprofilesctl set power-saver; kill -9 $(pidof i3-nagbar)' \
 		-B Balanced 'powerprofilesctl set balanced; kill -9 $(pidof i3-nagbar)' \
-		-B Performance 'powerprofilesctl set performance; kill -9 $(pidof i3-nagbar)'
 	'';
 
 	lockerCommand = pkgs.writeShellScriptBin "locker_command" ''
+		# --color=282a36 \
 		i3lock \
-		--color=282a36 \
+		--color=000000 \
 		--radius 100 \
 		--ring-width=10 \
 		--keylayout 0 \
@@ -44,7 +44,6 @@ let
 
 		$cmd -m "Monitor setup" \
 		-t warning \
-		-B Auto 'xrandr --auto; kill -9 $(pidof i3-nagbar)' \
 		-B 'Expand to the right' 'xrandr --output HDMI1 --auto --right-of eDP1; kill -9 $(pidof i3-nagbar)' \
 		-B Mirror 'xrandr --output HDMI1 --auto --same-as eDP1; kill -9 $(pidof i3-nagbar)' \
 

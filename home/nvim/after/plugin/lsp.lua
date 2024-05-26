@@ -36,7 +36,6 @@ vim.diagnostic.config({
 require 'lspconfig'.clangd.setup {}
 require 'lspconfig'.gopls.setup {}
 require 'lspconfig'.lua_ls.setup {}
-require 'lspconfig'.nushell.setup {}
 require 'lspconfig'.nixd.setup {}
 require 'lspconfig'.lua_ls.setup(lua_opts)
 require 'lspconfig'.pylsp.setup {}

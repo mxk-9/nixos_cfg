@@ -4,8 +4,8 @@ get_status() {
   st=$(cat /sys/class/power_supply/BAT*/status)
   
   case $st in
-    "Charging")    echo 1 ;;
-    "Discharging") echo 0 ;;
+    "Charging" | "Not charging") echo 1 ;;
+    "Discharging")               echo 0 ;;
   esac
 }
 
@@ -14,7 +14,7 @@ get_profile() {
 
   case $pr in
     "performance") echo 1 ;;
-    "power-saver") echo 0 ;;
+    "power-saver" | "balanced") echo 0 ;;
   esac
 }
 
@@ -26,22 +26,22 @@ change_status() {
     ;;
     1)
       powerprofilesctl set performance
-      picom --vsync
+      picom --vsync &
     ;;
-  esac
-}
+  esac }
 
 daemon() {
   while true; do
-    sleep 1m
     battery=$(get_status)
     profile=$(get_profile)
     
     if [ $battery != $profile ]; then
       change_status $battery
+      battery=$(get_status)
+      profile=$(get_profile)
     fi
 
-    echo "$battery, $profile"
+    sleep 30s
   done
 }
 

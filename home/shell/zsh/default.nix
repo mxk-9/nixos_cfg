@@ -19,6 +19,7 @@
 			export PATH=$PATH:$HOME/.local/bin
 			${builtins.readFile ./tm.zsh}
 			${builtins.readFile ./ud.zsh}
+			${builtins.readFile ./funcs.zsh}
 		'';
 
 		loginExtra = ''
