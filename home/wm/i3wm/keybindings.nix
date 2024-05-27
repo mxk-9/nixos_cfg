@@ -15,10 +15,10 @@ in {
 	xsession.windowManager.i3.config = {
 		keybindings = with pkgs; lib.mkOptionDefault {
 			# Scripts
-			"${MS}+e" = "exec logout_window";
+			"${MS}+e" = "exec logout_rofi.sh";
 			"${M}+x"  = "exec touchpad_toggle";
-			"${MM1}+F1" = "exec power_profile_select";
-			"${MM1}+F2" = "exec monitor_setup";
+			"${MS}+p" = "exec power_menu_rofi.sh";
+			"${MS}+d" = "exec monitor_rofi.sh";
 
 			# Apps
 			"${M}+p"  = "exec rofi -show drun";
