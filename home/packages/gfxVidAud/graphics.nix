@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     gimp
     mypaint
-    gwenview
+    mate.eom
     gpick
     blender
   ];
