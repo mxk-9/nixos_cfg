@@ -4,16 +4,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.sny = {
-      home = {
-        stateVersion = "23.11";
-
-        file.".config/kitty/kitty.conf" = {
-          source = ./cfg-files/kitty.conf;
-          recursive = true;
-        };
-
-        file.".tmux.conf".source = ./cfg-files/tmux.conf;
-      };
+      home.stateVersion = "23.11";
 
       xdg.configFile.nvim.source = ./nvim;
 
@@ -21,6 +12,8 @@
         ./shell
         ./packages
         ./wm
+        ./tmux.nix
+        ./kitty.nix
       ];
     };
   };

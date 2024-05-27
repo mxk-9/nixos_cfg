@@ -2,7 +2,6 @@
 let
 	base_pkgs = {
 		home.packages = with pkgs; [
-		    kitty kitty-themes
 		    glib
 		    networkmanagerapplet
 		    blueman
