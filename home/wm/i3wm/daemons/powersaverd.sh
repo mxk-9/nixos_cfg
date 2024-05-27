@@ -3,19 +3,21 @@ PID_FILE=/home/sny/.powersaverd.pid
 get_status() {
   st=$(cat /sys/class/power_supply/BAT*/status)
   
-  case $st in
-    "Charging" | "Not charging") echo 1 ;;
-    "Discharging")               echo 0 ;;
-  esac
+  if [[ $st == "Discharging" ]]; then
+	echo 0
+  else
+    echo 1
+  fi
 }
 
 get_profile() {
   pr=$(powerprofilesctl get)
 
-  case $pr in
-    "performance") echo 1 ;;
-    "power-saver" | "balanced") echo 0 ;;
-  esac
+  if [[ $pr == "performance" ]]; then
+    echo 1
+  else
+    echo 0
+  fi
 }
 
 change_status() {

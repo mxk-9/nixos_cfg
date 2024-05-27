@@ -48,6 +48,9 @@
 			nri = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --impure"; # for nix-ld
 			nr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
 			nd = "nix develop";
+            ndb = "nix develop --command build.sh";
+            ndd = "nix develop --command debug.sh";
+            nde = "nix develop --command nvim -S Session.vim";
 
 			e = "nvim";
 			es = "nvim -S";
