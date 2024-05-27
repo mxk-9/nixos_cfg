@@ -30,8 +30,8 @@
     start picom" | rofi -dmenu)
 
     case $item in
-      "mirror") xrandr --output hdmi1 --auto --same-as edp1 ;;
-      "expand to right") xrandr --output hdmi1 --auto --right-of edp1 ;;
+      "mirror") xrandr --output HDMI1 --auto --same-as eDP1 ;;
+      "expand to right") xrandr --output HDMI1 --auto --right-of eDP1 ;;
       "kill picom") pkill picom ;;
       "start picom") picom --vsync & ;;
     esac
