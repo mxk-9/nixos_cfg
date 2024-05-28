@@ -28,5 +28,14 @@
     style.name = "gtk2";
   };
 
-  home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "gtk";
+
+  home = {
+    pointerCursor = with pkgs; {
+      package = quintom-cursor-theme;
+      # defaultCursor = ;
+      name = "Quintom_Ink";
+      size = 32;
+    };
+    sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "gtk";
+  };
 }

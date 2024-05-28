@@ -12,29 +12,16 @@
     terminal = "screen-256color";
 
     plugins = with pkgs.tmuxPlugins; [
-      # onedark-theme # theme
       catppuccin # theme
 
-      { plugin = continuum
-      ; extraConfig = ''
-        set -g @continuum-restore 'on'
-        set -g @continuum-save-interval '15' # minutes
-      ''
-      ;}
-
-      { plugin = resurrect
-      ; extraConfig = "set -g @resurrect-strategy-nvim 'session'"
-      ;}
+      extrakto
+      prefix-highlight
 
       { plugin = pain-control
       ; extraConfig = ''
-        set-option -g @pane_resize "10"
+        set-option -g @pane_resize "2"
       ''
       ;}
-
-      extrakto
-      
-      prefix-highlight
     ];
   };
 }
