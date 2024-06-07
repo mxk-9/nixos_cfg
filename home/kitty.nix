@@ -4,7 +4,7 @@
     font = {
       package = pkgs.jetbrains-mono;
       name = "JetBrains Mono";
-      size = 12.5;
+      size = 15.0;
     };
     settings = {
       "copy_on_select" = "clipboard";
@@ -12,7 +12,7 @@
       "sync_to_monitor" = "yes";
       "enable_audio_bell" = "no";
       "background_opacity" = 1;
+      "term" = "xterm-kitty";
     };
-    # theme = "Catppuccin-Macchiato";
   };
 }

@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   M  = "Mod4";
-  M1 = "Mod1";
-  S  = "Shift";
-  C  = "Ctrl";
 in {
   xsession.windowManager.i3 = {
     enable = true;
@@ -12,14 +9,16 @@ in {
 
       fonts = {
         names = ["JetBrains Mono"];
-        size = 10.5;
+        # size = 10.5;
+        size = 15.0;
       };
 
       bars = [{
         position = "top";
         fonts = {
           names = [ "JetBrains Mono" ];
-          size = 11.0;
+          size = 15.0;
+          # size = 11.0;
         };
         statusCommand = "i3status";
         colors = {

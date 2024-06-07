@@ -7,10 +7,6 @@ let
       exit
     fi
 
-    echo "$1"
-    echo "$2"
-    echo "$3"
-
     yt-dlp --external-downloader ffmpeg --external-downloader-args "ffmpeg_i: -ss $1 -to $2" $3
   '';
 
@@ -30,7 +26,7 @@ in {
   ];
 
   # Extra shell scripts
-  home.packages = with pkgs; [
+  home.packages = [
     cutYoutubeVideo
     ffmpegReduceQuality
   ];

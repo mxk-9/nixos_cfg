@@ -25,15 +25,21 @@
 
   monitorRofi = pkgs.writeShellScriptBin "monitor_rofi.sh" ''
     item=$(echo "mirror
-    expand to right
-    kill picom
-    start picom" | rofi -dmenu)
+    to right
+    to left
+    external
+    internal
+    no vsync
+    vsync" | rofi -dmenu)
 
     case $item in
       "mirror") xrandr --output HDMI1 --auto --same-as eDP1 ;;
-      "expand to right") xrandr --output HDMI1 --auto --right-of eDP1 ;;
-      "kill picom") pkill picom ;;
-      "start picom") picom --vsync & ;;
+      "to right") xrandr --output HDMI1 --auto --right-of eDP1 --output eDP1 --auto ;;
+      "to left") xrandr --output HDMI1 --auto --left-of eDP1 --output eDP1 --auto ;;
+      "external") xrandr --output HDMI1 --auto --output eDP1 --off ;;
+      "internal") xrandr --output eDP1 --auto --output HDMI1 --off ;;
+      "no vsync") pkill picom ;;
+      "vsync") picom --vsync & ;;
     esac
 
     pkill warpd
@@ -45,11 +51,11 @@ in {
     enable = true;
     extraConfig = {
       modi = "drun,window";
-      font = "JetBrains Mono 12";
+      font = "JetBrains Mono 15";
       icon-theme = "Dracula";
       show-icons = true;
     };
-    theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark.rasi";
+    theme = "${pkgs.rofi}/share/rofi/themes/android_notification.rasi";
   };
 
   home.packages = [

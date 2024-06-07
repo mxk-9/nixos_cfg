@@ -1,12 +1,12 @@
 { pkgs, ... }:
 {
-	home.packages = with pkgs; [
-		chromium
-		thunderbird
-		discord
-		telegram-desktop
-		remmina
-		qbittorrent
-		tor-browser-bundle-bin
-	];
+  home.packages = with pkgs; [
+    chromium
+    telegram-desktop
+    qbittorrent
+    # thunderbird
+    # discord
+    # remmina
+    # tor-browser-bundle-bin
+  ];
 }

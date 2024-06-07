@@ -20,6 +20,11 @@
       package = pkgs.dracula-icon-theme;
     };
 
+    font = {
+      package = pkgs.jetbrains-mono;
+      name = "JetBrains Mono";
+      size = 15.0;
+    };
   };
 
   qt = {

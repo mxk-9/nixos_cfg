@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, ... }:
 let
 	M   = "Mod4";
 	M1  = "Mod1";
@@ -10,27 +10,31 @@ let
 	MC  = "${M}+${C}";
 	MSC = "${M}+${S}+${C}";
 	MM1 = "${M}+${M1}";
+    MMF = "${MM1}+F";
 in {
 	imports = [ ./scripts.nix ];
 	xsession.windowManager.i3.config = {
-		keybindings = with pkgs; lib.mkOptionDefault {
+		keybindings = lib.mkOptionDefault {
 			# Scripts
 			"${MS}+e" = "exec logout_rofi.sh";
 			"${M}+x"  = "exec touchpad_toggle";
 			"${MS}+p" = "exec power_menu_rofi.sh";
-			"${MS}+d" = "exec monitor_rofi.sh";
+			"${M}+d"  = "exec monitor_rofi.sh";
+            "${M}+b"  = "exec bluetooth_toggle";
+            "${M}+n"  = "exec network_toggle on";
+            "${MS}+n" = "exec network_toggle off";
 
 			# Apps
 			"${M}+p"  = "exec rofi -show drun";
-			"${M}+d"  = "exec rofi -show window";
 			"${M}+z"  = "exec sh -c 'maim -s | xclip -selection clipboard -t image/png' show drun";
 			"${MS}+z" = "exec sh -c 'maim | xclip -selection clipboard -t image/png' show drun";
 			"${C}+${M1}+l" = "exec locker_command";
 
-			"${MF}1" = "exec chromium";
-			"${MF}2" = "exec pavucontrol";
-			"${MF}3" = "exec telegram-desktop";
-			"${MF}4" = "exec gimp";
+			"${MF}1"  = "exec firefox -P sny";
+			"${MMF}1" = "exec firefox -P work";
+			"${MF}2"  = "exec pavucontrol";
+			"${MF}3"  = "exec telegram-desktop";
+			"${MF}4"  = "exec gimp";
 
 			# Brightness
 			"XF86MonBrightnessUp"   = "exec light -A 2";

@@ -27,8 +27,11 @@
     { command = "floating enable"
     ; criteria.class = "KeePassXC"
     ;}
-    { command= "floating enable"
+    { command = "floating enable"
     ; criteria.class = "ghostwriter"
+    ;}
+    { command = "floating disable"
+    ; criteria.class = "bebra"
     ;}
   ];
 }

@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, ...}:
 {
   home.packages = with pkgs; [
     gimp
-    mypaint
-    mate.eom
-    gpick
+    kdenlive
     blender
+    ffmpeg_7-full
+    obs-studio
   ];
 }

@@ -5,7 +5,7 @@ let
   };
 
   cpp_gcc_setup = {
-    home.packages = with pkgs; [ gdb vscode-extensions.llvm-org.lldb-vscode cpplint ];
+    home.packages = with pkgs; [ gdb vscode-extensions.llvm-org.lldb-vscode ];
     imports = [ gcc_base ];
   };
 
@@ -27,10 +27,6 @@ let
     home.packages = with pkgs; [ cargo rustc rustfmt rust-analyzer ];
   };
 
-  neovim = {
-    home.packages = with pkgs; [ ripgrep nixd jsonnet-language-server ];
-  };
-
   hx = {
     home = {
       packages = with pkgs; [ helix dprint nil ];
@@ -38,12 +34,12 @@ let
         hxcfg = ".config/helix";
       in {
         "${hxcfg}/config.toml" = {
-          source = ../cfg-files/helix/config.toml;
+          source = ../helix/config.toml;
           recursive = true;
         };
 
         "${hxcfg}/languages.toml" = {
-          source = ../cfg-files/helix/languages.toml;
+          source = ../helix/languages.toml;
           recursive = true;
         };
       };
@@ -58,7 +54,6 @@ in {
     lua_setup
 
     # Editors
-    neovim
     # hx
   ];
 

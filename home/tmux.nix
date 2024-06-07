@@ -8,11 +8,11 @@
     escapeTime = 50;
     keyMode = "vi";
     mouse = true;
-    resizeAmount = 2;
-    terminal = "screen-256color";
+    resizeAmount = 1;
+    terminal = "tmux-256color";
 
     plugins = with pkgs.tmuxPlugins; [
-      catppuccin # theme
+      onedark-theme
 
       extrakto
       prefix-highlight

@@ -1,7 +1,7 @@
 {
   imports = [
     ./games.nix
-    ./gfxVidAud
+    ./gfxVid.nix
 	./media.nix
     ./dev.nix
     ./net.nix
