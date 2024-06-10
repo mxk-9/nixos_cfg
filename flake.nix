@@ -21,28 +21,28 @@
     , ...
   }@inputs: let
     system = "x86_64-linux";
+
+    homeModule = [
+      home-manager.nixosModules.home-manager {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+        };
+        imports = [ ./home/sny.nix ];
+        home-manager.extraSpecialArgs = { inherit inputs; };
+      }
+    ];
+
+    specialArgs = { inherit inputs; };
   in {
     nixosConfigurations.Honor-NixOS = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager {
-          imports = [ ./home ];
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
-        ./hosts/Honor-NixOS
-      ];
+      inherit system specialArgs;
+      modules = homeModule ++ [ ./hosts/Honor-NixOS ];
     };
 
     nixosConfigurations.Ernmore-NixOS = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager { imports = [ ./home ]; }
-        ./hosts/Ernmore-NixOS
-      ];
+      inherit system specialArgs;
+      modules = homeModule ++ [ ./hosts/Ernmore-NixOS ];
     };
   };
 }

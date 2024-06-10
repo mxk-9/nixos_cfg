@@ -33,6 +33,7 @@ change_status() {
   esac }
 
 daemon() {
+  # check if battery status != charging && capacity <= 40% then dunstify -m 
   while true; do
     battery=$(get_status)
     profile=$(get_profile)

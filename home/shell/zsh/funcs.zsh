@@ -23,3 +23,7 @@ kicat() {
 	# Make simple "gallery"
 	kitty +kitten icat $@
 }
+
+calc() {
+  echo $(($@))
+}

@@ -95,7 +95,7 @@ in {
 
     "identify.fxaccounts.enabled" = false;
 
-    "media.autoplay.default" = 0;
+    "media.autoplay.default" = 2;
     "media.autoplay.enabled" = false;
 
     "network.proxy.http" = "http://n.thenewone.lol";

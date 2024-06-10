@@ -36,7 +36,6 @@ let
     esac
   '';
 
-
   lockerCommand = pkgs.writeShellScriptBin "locker_command" ''
     font="JetBrains Mono"
     i3lock \
@@ -61,11 +60,47 @@ let
     --wrong-size=34 \
     --verif-size=34 \
   '';
+
+  screenShoting = pkgs.writeShellScriptBin "screenshoter.sh" ''
+    fileType=png
+    fileName=$(date +%Y-%m-%d_%H-%M-%S).$fileType
+    pathToDir=$HOME/Pictures/TemporaryScreens
+    screenCreated=false
+
+    if ! [[ -d $pathToDir ]]; then
+      mkdir -p $pathToDir
+    fi
+
+    case $1 in
+      "area")
+        maim -s $pathToDir/$fileName
+      ;;
+
+      "window")
+        maim -i $(xdotool getactivewindow) $pathToDir/$fileName
+      ;;
+
+      "full")
+        maim $pathToDir/$fileName
+      ;;
+    esac
+
+    ls $pathToDir/$fileName 2> /dev/null
+    if [ $? -eq 0 ]; then
+      screenCreated=true
+      cat $pathToDir/$fileName | xclip -sel clip -t image/png
+    fi
+
+    if $screenCreated; then
+      dunstify -u normal -t 500 "Screenshot saved"
+    fi
+  '';
 in {
   home.packages = [
     touchpadToggle
     toggleBluetooth
     lockerCommand
     toggleNetwork
+    screenShoting
   ];
 }

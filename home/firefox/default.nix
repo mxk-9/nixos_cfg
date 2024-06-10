@@ -7,11 +7,11 @@
       work = import ./work { inherit inputs pkgs; };
     };
 
-    # policies.ExtensionSettings = {
-    #   "uBlock0@raymondhill.net" = {
-    #     install_url = "https://addons.mozilla.org/firefox/downloads/file/4269685/2668061-0.0.1.64.xpi";
-    #     installation_mode = "force_installed";
-    #   };
-    # };
+    policies.ExtensionSettings = {
+      "disable-html5-autoplay@afnankhan" = {
+        install_url = "https://addons.mozilla.org/firefox/downloads/file/4271494/disable_autoplay-2018.10.4resigned1.xpi";
+        installation_mode = "force_installed";
+      };
+    };
   };
 }
