@@ -9,6 +9,7 @@
     ./boot.nix
     ./fstab.nix
     ../common
+    ../pkg
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
