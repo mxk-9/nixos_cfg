@@ -25,8 +25,9 @@ kmset("v", "<C-s>", "<Esc>:w<CR>")
 kmset("n", "<leader>q", ":mks!<CR>")
 kmset("n", "<leader>Q", ":mks!<CR>:xa<CR>")
 
--- Remap for esc))
+-- Remap for esc
 kmset("i", "jj", "<Esc>")
+kmset("i", "<C-j>", "<Esc>")
 
 -- Go doc
 kmset("n", "<leader>gd", ":tabnew<CR>:set filetype=go<CR>:r!go doc ")

@@ -14,6 +14,7 @@
         ./tmux.nix
         ./kitty.nix
         ./firefox
+        ./qutebrowser
       ];
     };
   };

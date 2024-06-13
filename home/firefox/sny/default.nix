@@ -98,9 +98,6 @@ in {
     "media.autoplay.default" = 2;
     "media.autoplay.enabled" = false;
 
-    "network.proxy.http" = "http://n.thenewone.lol";
-    "network.proxy.http_port" = 29976;
-
     "privacy.donottrackheader.enabled" = true;
     "privacy.donottrackheader.value" = 1;
     "privacy.query_stripping" = true;

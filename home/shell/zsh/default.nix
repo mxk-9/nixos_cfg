@@ -54,6 +54,9 @@
       es = "nvim -S";
       ez = "nvim -S Session.vim";
       rsync = "rsync -r --info=progress2 --info=name0";
+
+      chmo = "chmod 754 -Rv";
+      chmoff = "chmod 000 -Rv";
     };
   };
 }

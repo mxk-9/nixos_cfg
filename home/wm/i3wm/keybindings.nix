@@ -31,9 +31,11 @@ in {
       "${MS}+s"      = "exec screenshoter.sh area"; 
       "${MC}+s"      = "exec screenshoter.sh full"; 
       "${C}+${M1}+l" = "exec locker_command";
+      "${MS}+d"      = "exec rofi -show window";
 
       "${MF}1"  = "exec firefox -P sny";
-      "${MMF}1" = "exec firefox -P work";
+      # "${MMF}1" = "exec firefox -P work";
+      "${MMF}1" = "exec qutebrowser";
       "${MF}2"  = "exec pavucontrol";
       "${MMF}2" = "exec blueman-manager";
       "${MF}3"  = "exec telegram-desktop";

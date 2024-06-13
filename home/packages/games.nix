@@ -18,6 +18,7 @@ in {
     duckstation
     pcsx2
     flycast
+    rpcs3
     # openmw
     # srb2
     # xonotic
