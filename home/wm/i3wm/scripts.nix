@@ -95,6 +95,29 @@ let
       dunstify -u normal -t 500 "Screenshot saved"
     fi
   '';
+
+  changeWM = let
+    script = pkgs.writeShellScriptBin "change_kwin_i3wm.sh" ''
+      kquitapp5 plasmashell
+      wait $!
+      qdbus org.kde.kglobalaccel /kglobalaccel blockGlobalShortcuts true
+      wait $!
+      i3 --replace &
+    '';
+  in {
+    home.packages = [ script ];
+
+    xdg.desktopEntries = {
+      i3wm = {
+        name = "i3wm";
+        genericName = "Cool Window Manager";
+        exec = "change_kwin_i3wm.sh";
+        terminal = true;
+        type = "Application";
+        icon = ./i3wm.png;
+      };
+    };
+  };
 in {
   home.packages = [
     touchpadToggle
@@ -103,4 +126,8 @@ in {
     toggleNetwork
     screenShoting
   ];
+
+  # imports = [
+  #   changeWM
+  # ];
 }

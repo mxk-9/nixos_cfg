@@ -5,7 +5,7 @@
     telegram-desktop
     qbittorrent
     # thunderbird
-    # discord
+    discord
     # remmina
     # tor-browser-bundle-bin
   ];

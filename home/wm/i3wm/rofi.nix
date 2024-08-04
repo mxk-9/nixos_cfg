@@ -1,15 +1,35 @@
 { pkgs, ... }: let
   logoutRofi = pkgs.writeShellScriptBin "logout_rofi.sh" ''
+    alias clear_history="rm /home/sny/.zsh_history";
     item=$(echo "suspend
     logout
     poweroff
     reboot" | rofi -dmenu)
+    # kwin_x11" | rofi -dmenu)
 
     case $item in
       "suspend") locker_command | systemctl suspend ;;
-      "logout") i3-msg exit ;;
-      "poweroff") poweroff ;;
-      "reboot") reboot ;;
+      "logout")
+        clear_history
+        i3-msg exit
+      ;;
+      "poweroff")
+        clear_history
+        poweroff
+      ;;
+      "reboot")
+        clear_history
+        reboot
+      ;;
+      "kwin_x11")
+        plkill i3
+        wait $!
+        kstart5 plasmashell
+        wait $!
+        kwin_x11 --replace &
+        qdbus org.kde.kglobalaccel /kglobalaccel blockGlobalShortcuts false
+        pkill .dunst-wrapped
+      ;;
     esac
   '';
 

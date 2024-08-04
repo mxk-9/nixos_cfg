@@ -1,7 +1,17 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 let
   M  = "Mod4";
 in {
+  home = {
+    file.".xinitrc".text = ''
+      exec dbus-launch --exit-with-session --sh-syntax i3
+    '';
+
+    packages = with pkgs; [
+      i3lock-color
+    ];
+  };
+
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -9,7 +19,6 @@ in {
 
       fonts = {
         names = ["JetBrains Mono"];
-        # size = 10.5;
         size = 15.0;
       };
 
@@ -18,9 +27,9 @@ in {
         fonts = {
           names = [ "JetBrains Mono" ];
           size = 15.0;
-          # size = 11.0;
         };
         statusCommand = "i3status";
+        # statusCommand = "i3blocks";
         colors = {
           activeWorkspace = {
             background = "#282a36";
@@ -49,17 +58,21 @@ in {
       exec_always autoscreend.sh restart
       exec_always powersaverd.sh restart
 
+      exec_always xsetroot -solid "#000000"
+
       exec dunst
     '';
   };
 
-  imports = [
+  imports = let
+    tmpBar = ./i3status.nix;
+    # tmpBar = ./i3blocks.nix;
+  in [
     ./keybindings.nix
-    ./i3status.nix
+    tmpBar
     ./rofi.nix
     ./dunst.nix
     ./floating.nix
     ./colors.nix
-    ./daemons
   ];
 }

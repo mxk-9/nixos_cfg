@@ -41,6 +41,7 @@ let
     users.users.sny.shell = pkgs.zsh;
     programs.zsh.enable = true;
   };
+
 in {
   nix = {
     settings = {
@@ -64,6 +65,7 @@ in {
 
   imports = [
     ./x11.nix
+    # ./kde.nix
     ./security.nix
     locale
     user_sny

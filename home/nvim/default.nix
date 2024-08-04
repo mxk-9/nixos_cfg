@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, _prefs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -6,6 +6,9 @@
     vimAlias = true;
     vimdiffAlias = true;
   };
-  xdg.configFile.nvim.source = ./.;
-  home.packages = with pkgs; [ ripgrep nixd jsonnet-language-server ];
+  xdg.configFile = {
+    nvim.source = ./.;
+    # "nvim/lua/sysinfo.lua".text = "return " + lib.generators.toLua { } _prefs;
+  };
+  home.packages = with pkgs; [ ripgrep nixd nixdoc jsonnet-language-server ];
 }

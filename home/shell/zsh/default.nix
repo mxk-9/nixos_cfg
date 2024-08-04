@@ -8,6 +8,7 @@
       enable = true;
       highlight = "fg=#ff0ff,bg=cyan,bold,underline";
     };
+
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -15,8 +16,14 @@
       ];
       theme = "fox";
     };
+
+    localVariables = {
+      MEDIA = "/run/media/sny";
+      VENTOY = "/run/media/sny/Ventoy";
+      BOOKS = "/home/sny/Documents/Library";
+    };
+
     initExtra = ''
-      export PATH=$PATH:$HOME/.local/bin
       ${builtins.readFile ./tm.zsh}
       ${builtins.readFile ./ud.zsh}
       ${builtins.readFile ./funcs.zsh}
@@ -24,19 +31,20 @@
 
     loginExtra = ''
       if [[ $(pgrep -x "X") == "" ]]; then
+        rm .zsh_history
         startx
-        exit
       fi
     '';
 
     shellGlobalAliases = {
       l = "ls";
-      la = "ls -a";
 
-      mk = "mkdir";
+      mk = "mkdir -p";
 
       mpvn = "mpv --no-video";
       mpvf = "mpv --fullscreen";
+
+      gv = "gwenview";
 
       ds = "doas";
 
@@ -47,6 +55,7 @@
       nr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
       nd = "nix develop";
       ndb = "nix develop --command build.sh";
+      ndc = "nix develop --command";
       ndd = "nix develop --command debug.sh";
       nde = "nix develop --command nvim -S Session.vim";
 

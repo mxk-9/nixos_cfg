@@ -14,7 +14,7 @@ let
   go_setup = {
     imports = [ gcc_base ]; # For CGO
     home = {
-      packages = with pkgs; [ go gopls delve revive ];
+      packages = with pkgs; [ go gopls golint delve ];
       sessionVariables.GOTELEMETRY = "off";
     };
   };
@@ -27,35 +27,18 @@ let
     home.packages = with pkgs; [ cargo rustc rustfmt rust-analyzer ];
   };
 
-  hx = {
-    home = {
-      packages = with pkgs; [ helix dprint nil ];
-      file = let
-        hxcfg = ".config/helix";
-      in {
-        "${hxcfg}/config.toml" = {
-          source = ../helix/config.toml;
-          recursive = true;
-        };
-
-        "${hxcfg}/languages.toml" = {
-          source = ../helix/languages.toml;
-          recursive = true;
-        };
-      };
-    };
-  };
 in {
   imports = [
     # Languages
-    # rust_setup
+    rust_setup
     cpp_setup
     go_setup
     lua_setup
-
-    # Editors
-    # hx
   ];
 
+
+  home.packages = with pkgs; [
+    emacs
+  ];
 }
 

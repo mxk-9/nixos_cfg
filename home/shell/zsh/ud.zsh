@@ -18,6 +18,10 @@ ud() {
 	esac
 }
 
-alias lsbd="file /dev/* | grep -iE 'block special' | grep --invert-match loop | cut -f 1 -d ':' | cut -f 3 -d '/'"
+lsmnt() {
+	mount | grep $1 | cut -f 3 -d ' '
+}
+
+alias lsdev="file /dev/* | grep -iE 'block special' | grep --invert-match loop | cut -f 1 -d ':' | cut -f 3 -d '/'"
 alias M="ud m"
 alias U="ud u"

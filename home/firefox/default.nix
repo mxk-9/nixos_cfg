@@ -2,8 +2,7 @@
   programs.firefox = {
     enable = true;
     profiles = {
-      sny = import ./sny { inherit inputs pkgs; } ;
-
+      sny = import ./sny { inherit inputs pkgs; };
       work = import ./work { inherit inputs pkgs; };
     };
 

@@ -23,11 +23,12 @@ in {
   imports = [
     # ./nushell
     ./zsh
+    # ./bash
   ];
 
   # Extra shell scripts
   home.packages = [
-    cutYoutubeVideo
-    ffmpegReduceQuality
+    # cutYoutubeVideo
+    # ffmpegReduceQuality
   ];
 }

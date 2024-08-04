@@ -2,7 +2,7 @@
   imports = [
     ./games.nix
     ./gfxVid.nix
-	./media.nix
+    ./media.nix
     ./dev.nix
     ./net.nix
     ./office.nix

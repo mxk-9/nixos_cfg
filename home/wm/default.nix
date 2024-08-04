@@ -9,8 +9,8 @@ let
   };
 
   x11_pkgs = {
-    imports = [ base_pkgs ];
     home.packages = with pkgs; [
+      maim
       xdragon
       xclip
       xdotool
@@ -24,24 +24,24 @@ let
   i3_wm = {
     imports = [
       x11_pkgs
+      base_pkgs
       ./i3wm
     ];
-
-    home = {
-      file.".xinitrc".text = ''
-        rm /home/sny/.zsh_history
-        exec dbus-launch --exit-with-session --sh-syntax i3
-      '';
-
-      packages = with pkgs; [
-        i3lock-color
-        maim
-      ];
-    };
   };
+
+  awesome_wm = {
+    imports = [
+      x11_pkgs
+      base_pkgs
+      ./awesome
+    ];
+  };
+
 in {
   imports = [
-    i3_wm
+    # i3_wm
+    awesome_wm
     ./themes.nix
+    ./daemons
   ];
 }

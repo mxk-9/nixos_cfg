@@ -18,15 +18,16 @@ in {
     duckstation
     pcsx2
     flycast
-    rpcs3
+    # rpcs3
+    minetest
     # openmw
     # srb2
     # xonotic
-    # minetest
   ];
 
   imports = [
     minecraft
     wine
+    # ./dosbox.nix
   ];
 }

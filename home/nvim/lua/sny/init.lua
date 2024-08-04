@@ -13,6 +13,8 @@ vc.colorscheme "bogster"
 
 vo.shell = "bash"
 
+vo.textwidth = 80
+
 -- Tabs and Spaces
 vo.tabstop = 4
 vo.shiftwidth = 4
