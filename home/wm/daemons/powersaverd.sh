@@ -24,11 +24,11 @@ change_status() {
   case $1 in
     0)
       powerprofilesctl set power-saver
-      pkill picom
+      # pkill picom
     ;;
     1)
       powerprofilesctl set performance
-      picom --vsync &
+      # picom --vsync &
     ;;
   esac }
 

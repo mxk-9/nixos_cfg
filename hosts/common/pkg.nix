@@ -38,7 +38,7 @@
 in {
   imports = [
     android_setup
-    steam_setup
+    # steam_setup
     mpv_setup
   ];
 

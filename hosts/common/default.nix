@@ -67,6 +67,7 @@ in {
     ./x11.nix
     # ./kde.nix
     ./security.nix
+    ./pkg.nix
     locale
     user_sny
     inputs.home-manager.nixosModule

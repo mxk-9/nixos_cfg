@@ -21,6 +21,7 @@
       MEDIA = "/run/media/sny";
       VENTOY = "/run/media/sny/Ventoy";
       BOOKS = "/home/sny/Documents/Library";
+      NIXCFG = "/home/sny/nixos-cfg";
     };
 
     initExtra = ''
@@ -43,6 +44,7 @@
 
       mpvn = "mpv --no-video";
       mpvf = "mpv --fullscreen";
+      flake_lock = "cp -v /home/sny/nixos-cfg/flake.lock";
 
       gv = "gwenview";
 
@@ -50,13 +52,11 @@
 
       d = "dragon -a -x";
 
-      nfu = "doas nix flake update /home/sny/nixos-cfg";
+      nfu = "nix flake update /home/sny/nixos-cfg";
       nri = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --impure";
+      nru = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --upgrade";
       nr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
       nd = "nix develop";
-      ndb = "nix develop --command build.sh";
-      ndc = "nix develop --command";
-      ndd = "nix develop --command debug.sh";
       nde = "nix develop --command nvim -S Session.vim";
 
       e = "nvim";

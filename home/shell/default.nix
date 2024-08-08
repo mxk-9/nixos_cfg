@@ -28,7 +28,7 @@ in {
 
   # Extra shell scripts
   home.packages = [
-    # cutYoutubeVideo
-    # ffmpegReduceQuality
+    cutYoutubeVideo
+    ffmpegReduceQuality
   ];
 }

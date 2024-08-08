@@ -1,3 +1,3 @@
 require("widgets.battery")
-require("widgets.volume")
-require("widgets.custom_menu")
+-- require("widgets.volume")
+-- require("widgets.custom_menu")

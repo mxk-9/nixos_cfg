@@ -3,7 +3,6 @@
     enable = true;
     profiles = {
       sny = import ./sny { inherit inputs pkgs; };
-      work = import ./work { inherit inputs pkgs; };
     };
 
     policies.ExtensionSettings = {

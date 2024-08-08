@@ -6,7 +6,7 @@
       ./firefox
       ./shell
       ./nvim
-      ./helix
+      # ./helix.nix
       ./wm
       ./tmux.nix
       ./kitty.nix

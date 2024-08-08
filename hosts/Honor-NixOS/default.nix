@@ -7,7 +7,6 @@
     ./boot.nix
     ./fstab.nix
     ../common
-    ../pkg
     # ./virt.nix
   ];
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

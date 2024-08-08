@@ -37,7 +37,6 @@
   home = {
     pointerCursor = with pkgs; {
       package = quintom-cursor-theme;
-      # defaultCursor = ;
       name = "Quintom_Ink";
       size = 32;
     };

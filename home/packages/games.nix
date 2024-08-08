@@ -13,13 +13,41 @@ let
       lutris
     ];
   };
+
+  dosbox = {
+    home = {
+      packages = with pkgs; [ dosbox-staging ];
+      file."dosbox-staging.conf" = {
+        enable = true;
+        recursive = true;
+        target = ".config/dosbox/dosbox-staging.conf";
+        source = ./dosbox.conf;
+      };
+    };
+  };
+
+  df = {
+    home.packages = with pkgs; [
+      # dwarf-fortress-packages.dwarf-fortress-full
+      dwarf-fortress
+    ];
+
+    xdg.desktopEntries.df = {
+      name = "Dwarf Fortress";
+      genericName = "Game";
+      exec = "dwarf-fortress";
+      terminal = false;
+      icon = ./dwarf_fortress.png;
+      categories = [ "Game" ];
+    };
+  };
 in {
   home.packages = with pkgs; [
     duckstation
     pcsx2
     flycast
-    # rpcs3
     minetest
+    # rpcs3
     # openmw
     # srb2
     # xonotic
@@ -28,6 +56,7 @@ in {
   imports = [
     minecraft
     wine
-    # ./dosbox.nix
+    df
+    dosbox
   ];
 }

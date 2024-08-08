@@ -37,8 +37,7 @@ cmd = {
 	"keepassxc",
 	"blueman-applet",
 	"autoscreend.sh start",
-	"powersaverd.sh start",
-    "emacs --daemon",
+	"powersaverd.sh start"
 }
 
 for _, v in pairs(cmd) do
