@@ -26,6 +26,7 @@ let
       x11_pkgs
       base_pkgs
       ./i3wm
+      ./daemons
     ];
   };
 
@@ -33,7 +34,7 @@ let
     imports = [
       x11_pkgs
       base_pkgs
-      ./awesome
+      ./awesome.nix
     ];
   };
 
@@ -42,6 +43,5 @@ in {
     # i3_wm
     awesome_wm
     ./themes.nix
-    ./daemons
   ];
 }

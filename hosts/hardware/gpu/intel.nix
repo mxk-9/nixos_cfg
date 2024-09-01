@@ -10,7 +10,6 @@
 
   hardware.graphics = {
     enable = true;
-    # driSupport = true;
     extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
@@ -18,6 +17,5 @@
       libvdpau-va-gl
 	  libGL
     ];
-	# setLdLibraryPath = true;
   };
 }

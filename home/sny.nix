@@ -5,7 +5,8 @@
     imports = [
       ./firefox
       ./shell
-      ./nvim
+      ./emacs.nix
+      ./nvim.nix
       # ./helix.nix
       ./wm
       ./tmux.nix

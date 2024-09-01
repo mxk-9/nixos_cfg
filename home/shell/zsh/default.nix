@@ -53,11 +53,14 @@
       d = "dragon -a -x";
 
       nfu = "nix flake update /home/sny/nixos-cfg";
-      nri = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --impure";
-      nru = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --upgrade";
-      nr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
+      nosri = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --impure";
+      nosru = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --upgrade";
+      nosr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
+
       nd = "nix develop";
+      nb = "nix build";
       nde = "nix develop --command nvim -S Session.vim";
+      nr = "nix run";
 
       e = "nvim";
       es = "nvim -S";

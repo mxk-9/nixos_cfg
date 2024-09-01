@@ -34,7 +34,7 @@ in {
       "${MS}+d"      = "exec rofi -show window";
       "${M}+Return"  = "exec kitty";
 
-      "${MF}1"  = "exec chromium";
+      "${MF}1"  = "exec firefox";
       # "${MF}1"  = "exec firefox -P sny";
       # "${MMF}1" = "exec firefox -P work";
       # "${MMF}1" = "exec qutebrowser";

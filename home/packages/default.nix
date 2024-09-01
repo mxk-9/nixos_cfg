@@ -20,7 +20,7 @@
 
   gfxVid = {
     home.packages = with pkgs; [
-      gimp
+      krita
       kdenlive
       blender
       gwenview
@@ -31,9 +31,9 @@
 
   media = {
     home.packages = with pkgs; [
-        playerctl
-        songrec
-        python312Packages.yt-dlp
+      playerctl
+      songrec
+      python312Packages.yt-dlp
     ];
   };
 

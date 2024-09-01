@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   xsession.windowManager.awesome = {
     enable = true;
@@ -13,15 +13,14 @@
     "awesome" = {
       enable = true;
       recursive = true;
-      source = ./.;
+      source = pkgs.fetchFromGitHub {
+        owner = "mxk-9";
+        repo = "awesome-wm";
+        rev = "8d7c362";
+        sha256 = "2OW6g7WtbcD+OWlLn4R7rbOomKt/oug2pIGc/D6aQFo=";
+        # sha256 = lib.fakeSha256;
+      };
       target = "awesome";
-    };
-
-    "picom" = {
-      enable = true;
-      recursive = true;
-      source = ./picom.conf;
-      target = "picom/picom.conf";
     };
   };
 
@@ -30,8 +29,9 @@
       scrot
       i3lock-color
     ];
+
     file.".xinitrc".text = ''
-      exec dbus-launch --exit-with-session --sh-syntax awesome
-      '';
+      exec awesome
+    '';
   };
 }
