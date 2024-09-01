@@ -38,12 +38,13 @@ in {
   imports = [
     # ./nushell
     ./zsh
-    # ./bash
+    ./bash.nix
   ];
 
   # Extra shell scripts
   home.packages = [
     cutYoutubeVideo
     ffmpegReduceQuality
+    screenRecord
   ];
 }
