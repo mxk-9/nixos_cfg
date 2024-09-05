@@ -11,13 +11,12 @@
     home.packages = with pkgs; [
       telegram-desktop
       qbittorrent
-      discord
-      # thunderbird
-      # remmina
-      # tor-browser-bundle-bin
+      vesktop
     ];
   };
 
+  # need to know how to use
+  # ~/.config/discord-screenaudio/userstyles.css
   gfxVid = {
     home.packages = with pkgs; [
       krita

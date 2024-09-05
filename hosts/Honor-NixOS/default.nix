@@ -1,14 +1,14 @@
-{ pkgs, lib, ... }: {
+{ lib, ... }: {
   networking.hostName = "Honor-NixOS";
 
   imports = [
     ../hardware
-    ../hardware/gpu/intel.nix
+    ../hardware/intel.nix
     ./boot.nix
     ./fstab.nix
     ../common
     ./distrobox.nix
-    # ./virt.nix
+    ./virt.nix
   ];
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

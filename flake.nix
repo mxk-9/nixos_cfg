@@ -1,9 +1,6 @@
 {
-  description = ''
-  Sny Spyper's NixOS config.
-  '';
+  description = "Sny Spyper's NixOS config.";
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -17,8 +14,7 @@
     };
 
     firefox-addons = {
-      url =
-        "gitlab:rycee/nur-expressions/83a5049cfc2e37d9ef5b540aa01c0e5cc1e2a00f?dir=pkgs/firefox-addons";
+      url = "gitlab:rycee/nur-expressions/83a5049cfc2e37d9ef5b540aa01c0e5cc1e2a00f?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -44,15 +40,13 @@
 
     specialArgs = { inherit inputs; };
 
-    systems = [
+    systems = let system = "x86_64-linux"; in [
       { name = "Honor-NixOS"
-      ; system = "x86_64-linux"
-      ; _prefs = {}
+      ; inherit system
       ; }
 
       { name = "Ernmore-NixOS"
-      ; system = "x86_64-linux"
-      ; _prefs = {}
+      ; inherit system
       ; }
     ];
   in {
@@ -60,14 +54,7 @@
       name = system.name;
       value = nixpkgs.lib.nixosSystem {
         system = system.system;
-        specialArgs = {
-          inherit inputs;
-          _prefs = system._prefs {
-            name = system.name;
-            system = system.system;
-            flakePath = toString ./.;
-          };
-        };
+        specialArgs = {inherit inputs;};
         modules = [
           ./hosts/${system.name}
 

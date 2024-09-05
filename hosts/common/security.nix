@@ -29,4 +29,9 @@ in {
   imports = [
     doas_setup
   ];
+
+  security = {
+    polkit.enable = true; # for sway
+    pam.services.swaylock = {};
+  };
 }

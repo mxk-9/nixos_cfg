@@ -5,14 +5,14 @@
   hardware = {
     graphics = {
       enable = true;
-      # driSupport = true;
-      # driSupport32Bit = true;
+      enable32Bit = true;
     };
 
     nvidia = {
       modesetting.enable = true;
+      nvidiaPersistenced = true;
       powerManagement.enable = false;
-      open = false;
+      open = true;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };

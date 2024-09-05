@@ -38,7 +38,7 @@ in {
   imports = [
     # ./nushell
     ./zsh
-    ./bash.nix
+    # ./bash.nix
   ];
 
   # Extra shell scripts

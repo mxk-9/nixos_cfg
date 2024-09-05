@@ -28,7 +28,6 @@ let
 
   df = {
     home.packages = with pkgs; [
-      # dwarf-fortress-packages.dwarf-fortress-full
       dwarf-fortress
     ];
 

@@ -8,14 +8,17 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-	  libGL
-    ];
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+        libGL
+      ];
+    };
   };
 }

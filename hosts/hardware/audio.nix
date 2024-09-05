@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
 	# Section below must be turn off
 	# rtkit is optional but recommended
 	security.rtkit.enable = true;

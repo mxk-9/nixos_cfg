@@ -4,8 +4,8 @@
 
   imports = [
     ../hardware
-    ../hardware/gpu/intel.nix
-    ../hardware/gpu/nvidia.nix
+    ../hardware/intel.nix
+    ../hardware/nvidia.nix
     ./boot.nix
     ./fstab.nix
     ../common
