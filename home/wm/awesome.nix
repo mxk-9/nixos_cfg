@@ -16,10 +16,11 @@
       source = pkgs.fetchFromGitHub {
         owner = "mxk-9";
         repo = "awesome-wm";
-        rev = "8d7c362";
-        sha256 = "2OW6g7WtbcD+OWlLn4R7rbOomKt/oug2pIGc/D6aQFo=";
+        rev = "c327b49";
+        sha256 = "PWXtRfOYVfUlILPm4B4jwpiUfiq50P2ns2Me3rJOKlI=";
         # sha256 = lib.fakeSha256;
       };
+      # source = /home/sny/sandbox/my_awesome_cfg;
       target = "awesome";
     };
   };

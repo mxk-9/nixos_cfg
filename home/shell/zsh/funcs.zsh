@@ -27,3 +27,15 @@ kicat() {
 calc() {
   echo $(($@))
 }
+
+nrn() {
+    pkg=$1
+    shift
+    nix run nixpkgs#$pkg $@
+}
+
+nsc() {
+  pkg=$1
+  shift
+  nix shell nixpkgs#$pkg --command $@
+}

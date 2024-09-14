@@ -11,6 +11,7 @@ let
   x11_pkgs = {
     home.packages = with pkgs; [
       maim
+      feh
       xdragon
       xclip
       xdotool

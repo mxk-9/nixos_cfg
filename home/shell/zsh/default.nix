@@ -58,6 +58,8 @@
       nosr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
 
       nd = "nix develop";
+      ndc = "nix develop --command";
+      ndce = "nix develop --command emacs &";
       nb = "nix build";
       nde = "nix develop --command nvim -S Session.vim";
       nr = "nix run";

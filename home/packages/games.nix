@@ -40,6 +40,13 @@ let
       categories = [ "Game" ];
     };
   };
+
+  godo = {
+    home.packages = with pkgs; [
+      godot_4
+    ];
+  };
+
 in {
   home.packages = with pkgs; [
     duckstation
@@ -57,5 +64,6 @@ in {
     wine
     df
     dosbox
+    godo
   ];
 }

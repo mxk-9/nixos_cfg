@@ -25,6 +25,11 @@ in {
     ; tags = [ "nix" "dev" ]
     ; url = "https://nix.dev/manual/nix/2.18/"
     ; }
+
+    { name = "Compose key cheatsheet"
+    ; tags = [ "linux" ]
+    ; url = "https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html"
+    ; }
   ];
 
   settings = {
