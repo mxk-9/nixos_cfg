@@ -1,13 +1,4 @@
 { pkgs, lib, ... }: let
-  distrobox = {
-    virtualisation.podman = {
-      enable = true;
-      dockerCompat = true;
-    };
-
-    environment.systemPackages = [ pkgs.distrobox ];
-  };
-
   fstab = {
     fileSystems."/" =
       { device = "/dev/nvme0n1p2";
@@ -38,7 +29,6 @@ in {
     ./boot.nix
     # ./virt.nix
     fstab
-    # distrobox
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

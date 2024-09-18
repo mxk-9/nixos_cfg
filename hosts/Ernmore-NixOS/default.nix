@@ -10,6 +10,7 @@
     ./fstab.nix
     ../common
     ../common/rdp.nix
+    ../common/distrobox.nix
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
