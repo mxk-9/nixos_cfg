@@ -27,7 +27,7 @@ in {
     ../common
     ../common/rdp.nix
     ./boot.nix
-    # ./virt.nix
+    ./virt.nix
     fstab
   ];
 
