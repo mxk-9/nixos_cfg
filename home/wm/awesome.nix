@@ -16,8 +16,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "mxk-9";
         repo = "awesome-wm";
-        rev = "533f4d1";
-        sha256 = "uX7W6eNK4KQfNfiDXwL+p6vC0VkHk+mnLmqEFpLUkNQ=";
+        rev = "1b12052";
+        sha256 = "oiyk8RjVkYrbqMoNS7DM8iuw29iVP+bnflNRynOraCc=";
         # sha256 = lib.fakeSha256;
       };
       # source = /home/sny/sandbox/awesome_cfg;

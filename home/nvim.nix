@@ -11,8 +11,8 @@
     source = pkgs.fetchFromGitHub {
         owner = "mxk-9";
         repo = "nvim";
-        rev = "85e5353";
-        sha256 = "iqBZkQ8wr/fUvQNdqv2slSTHQHScP1nWSKZls9v+3vQ=";
+        rev = "37e565a";
+        sha256 = "8f4p04D/Yy4mxy6AXftnQgDE8gdEmykYH8SWvA4a1J8=";
         # sha256 = lib.fakeSha256;
     };
     # source = /home/sny/sandbox/nvim_cfg;
