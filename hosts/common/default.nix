@@ -66,6 +66,7 @@ in {
   imports = [
     ./x11.nix
     # ./kde.nix
+    # ./gnome.nix
     ./security.nix
     ./pkg.nix
     locale

@@ -25,9 +25,10 @@ in {
     ../hardware
     ../hardware/intel.nix
     ../common
-    ../common/rdp.nix
+    ../common/distrobox.nix
+    # ../common/rdp.nix
+    # ./virt.nix
     ./boot.nix
-    ./virt.nix
     fstab
   ];
 

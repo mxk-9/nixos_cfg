@@ -33,7 +33,7 @@ in {
 
 	# Open ports in the firewall.
 	networking.firewall = {
-		allowedTCPPorts = [ 34925 25565 7777 30000 22 ];
-		allowedUDPPorts = [ 34925 25565 7777 30000 22 ];
+		allowedTCPPorts = [ 34925 10801 25565 7777 30000 22 ];
+		allowedUDPPorts = [ 34925 10801 25565 7777 30000 22 ];
 	};
 }

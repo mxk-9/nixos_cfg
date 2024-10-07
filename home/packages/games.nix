@@ -62,8 +62,8 @@ in {
   imports = [
     minecraft
     wine
-    df
-    dosbox
-    godo
+    # df
+    # dosbox
+    # godo
   ];
 }
