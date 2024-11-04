@@ -1,17 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, config, lib,... }:
 {
   services.xserver.videoDrivers = [ "intel" ];
-
-  boot.kernelParams = [ "i915.force_probe=9b41" ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
   hardware = {
-    graphics = {
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    opengl = {
       enable = true;
-      enable32Bit = true;
+      # enable32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver
         vaapiIntel

@@ -39,6 +39,13 @@ let
     ];
   };
 
+  sway_wm = {
+    imports = [
+      base_pkgs
+      ./sway.nix
+    ];
+  };
+
 in {
   imports = [
     # i3_wm

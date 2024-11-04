@@ -1,7 +1,8 @@
 {
   description = "Sny Spyper's NixOS config.";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,16 +13,12 @@
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions/83a5049cfc2e37d9ef5b540aa01c0e5cc1e2a00f?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs = {
     nixpkgs
+    , nixpkgs-unstable
     , home-manager
-    , nix-ld
+    # , nix-ld
     , ...
   }@inputs: let
     system = "x86_64-linux";
@@ -31,10 +28,16 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          backupFileExtension = "backup";
+          backupFileExtension = "bebra_back";
         };
         imports = [ ./home/sny.nix ];
-        home-manager.extraSpecialArgs = { inherit inputs; };
+        home-manager.extraSpecialArgs = {
+          inherit inputs;
+          pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        };
       }
     ];
 
@@ -57,8 +60,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/${system.name}
-
-          nix-ld.nixosModules.nix-ld
+          # nix-ld.nixosModules.nix-ld
           # { programs.nix-ld.enable = true; }
         ] ++ homeModule;
       };

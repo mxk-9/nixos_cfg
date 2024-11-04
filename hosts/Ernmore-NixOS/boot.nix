@@ -1,4 +1,18 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: let
+  fstab = {
+		fileSystems."/" =
+			{ device = "/dev/sda1";
+				fsType = "ext4";
+			};
+	
+		fileSystems."/home" =
+			{ device = "/dev/sdb1";
+				fsType = "ext4";
+			};
+	
+		swapDevices = [ { device = "/swapfile"; } ];
+	};
+in {
 	boot = {
 		loader = {
 			grub = {
@@ -19,4 +33,8 @@
 
 		supportedFilesystems = [ "ntfs" ];
 	};
+
+  imports = [
+    fstab
+  ];
 }

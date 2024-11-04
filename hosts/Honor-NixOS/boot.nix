@@ -8,6 +8,24 @@
       }
     '';
   };
+  fstab = {
+    fileSystems."/" =
+      { device = "/dev/nvme0n1p2";
+        fsType = "ext4";
+      };
+  
+    fileSystems."/boot" =
+      { device = "/dev/nvme0n1p1";
+        fsType = "vfat";
+      };
+  
+    fileSystems."/home" =
+      { device = "/dev/nvme0n1p3";
+        fsType = "ext4";
+      };
+  
+    swapDevices = [ { device = "/swapfile"; } ];
+  };
 in {
   boot = {
     loader = {
@@ -18,7 +36,7 @@ in {
         device      = "nodev";
         useOSProber = true;
 
-        splashImage = ./grub_background.png;
+        splashImage = ../../assets/grub_background.png;
         splashMode = "normal";
         gfxmodeEfi = "1920x1080";
         gfxpayloadEfi = "keep";
@@ -39,7 +57,7 @@ in {
     };
 
     kernelModules = [ "kvm-intel" "uhid" ];
-    kernelParams = [ "quiet" ];
+    kernelParams = [ "quiet" "i915.force_probe=9b41" ];
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     supportedFilesystems = [ "ntfs" ];
@@ -50,6 +68,7 @@ in {
   };
   imports = [
     # freebsdEntry
+    fstab
   ];
 
 }

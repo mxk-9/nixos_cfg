@@ -18,7 +18,6 @@
     };
   };
 
-  # services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.videoDrivers = [ "nvidia" "intel" ];
   environment.systemPackages = [ pkgs.nvtopPackages.nvidia ];
 }

@@ -36,15 +36,9 @@ let
       genericName = "Game";
       exec = "dwarf-fortress";
       terminal = false;
-      icon = ./dwarf_fortress.png;
+      icon = ../../assets/dwarf_fortress.png;
       categories = [ "Game" ];
     };
-  };
-
-  godo = {
-    home.packages = with pkgs; [
-      godot_4
-    ];
   };
 
 in {
@@ -52,7 +46,7 @@ in {
     duckstation
     pcsx2
     flycast
-    minetest
+    # minetest
     # rpcs3
     # openmw
     # srb2
@@ -60,10 +54,9 @@ in {
   ];
 
   imports = [
-    minecraft
-    wine
+    # minecraft
+    # wine
     # df
     # dosbox
-    # godo
   ];
 }

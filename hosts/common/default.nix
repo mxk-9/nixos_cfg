@@ -1,6 +1,37 @@
-{ pkgs, inputs, ... }:
-# Move cursor to the end of file
+{ pkgs, pkgs-unstable, inputs, ... }:
 let
+  sys_utils = {
+    environment.systemPackages = with pkgs; [
+  	  tmux
+  	  neovim
+  	
+  	  fd
+  	  rsync
+  	  tree
+  	
+  	  git
+  	
+  	  wget
+  	  curl
+  	
+  	  bat
+  	  file
+  	
+  	  p7zip
+  	  unzip
+  	  rar
+  	  unrar
+  	
+  	  htop
+  	  hwinfo
+  	  inxi
+  	
+  	  psmisc
+  	  pciutils
+  	  hdparm
+  	];
+  };
+
   locale = {
     i18n = let
       ru = "ru_RU.UTF-8";
@@ -29,19 +60,6 @@ let
       useXkbConfig = true; # use xkbOptions in tty.
     };
   };
-
-  user_sny = {
-    users.users.sny = {
-      isNormalUser = true;
-      home = "/home/sny";
-      description = "Sny Spyper";
-      extraGroups = [ "video" "audio" "networkmanager" "disk" ];
-    };
-
-    users.users.sny.shell = pkgs.zsh;
-    programs.zsh.enable = true;
-  };
-
 in {
   nix = {
     settings = {
@@ -52,6 +70,7 @@ in {
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     registry = {
       n.flake = inputs.nixpkgs;
+      nu.flake = inputs.nixpkgs-unstable;
     };
   };
 
@@ -64,13 +83,10 @@ in {
   ];
 
   imports = [
-    ./x11.nix
-    # ./kde.nix
-    # ./gnome.nix
-    ./security.nix
-    ./pkg.nix
+    ./gui.nix
+    ./sny.nix
     locale
-    user_sny
+    sys_utils
     inputs.home-manager.nixosModule
   ];
 

@@ -3,7 +3,6 @@
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-extra
-      noto-fonts-cjk
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
       noto-fonts-emoji
@@ -18,8 +17,8 @@
       dina-font
       proggyfonts
       corefonts
-      vistafonts
-      vistafonts-chs
+      # vistafonts
+      # vistafonts-chs
     ];
   };
 
@@ -61,10 +60,57 @@
       };
     };
   };
+
+  kde = {
+    services = {
+  	  displayManager.sddm = {
+  	    enable = true;
+  	  };
+  	  xserver.desktopManager.plasma5.enable = true;
+  	};
+
+  	environment.systemPackages = with pkgs; [
+  	  kate
+  	  kwrited
+  	];
+
+  	environment.variables = {
+  	  QT_QPA_PLATFORMTHEME = "Oxygen";
+  	};
+  };
+
+  gnome = {
+  	services.xserver = {
+  	  enable = true;
+  	  displayManager.gdm.enable = true;
+  	  desktopManager.gnome.enable = true;
+  	};
+  	
+  	environment.gnome.excludePackages = (with pkgs; [
+  	  gnome-photos
+  	  gnome-tour
+  	  epiphany
+  	  tali
+  	  totem
+  	  iagno
+  	  hitori
+  	  atomix
+  	]);
+  };
+
+  sway = {
+    security = {
+  	  polkit.enable = true; # for sway
+  	  pam.services.swaylock = {};
+  	};
+  };
 in {
   imports = [
     wm_base
     x11_setup
     fonts
+    # kde
+    # gnome
+    # sway
   ];
 }
