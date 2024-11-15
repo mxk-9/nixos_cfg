@@ -54,8 +54,8 @@ in {
   ];
 
   imports = [
-    # minecraft
-    # wine
+    minecraft
+    wine
     # df
     # dosbox
   ];

@@ -6,13 +6,13 @@
 
   emacs_cfg = {
     home.file = let
-      # emacs_src = pkgs.fetchFromGitHub {
-      #   owner = "mxk-9";
-      #   repo = "emacs_cfg";
-      #   rev = "cd348dd";
-      #   sha256 = "Zfifu3zOXTztJD5Kel/5juyPLC3pnqg3TvtCMRdh+X8=";
-      # };
-      emacs_src = "/home/sny/sandbox/emacs_cfg";
+      emacs_src = pkgs.fetchFromGitHub {
+        owner = "mxk-9";
+        repo = "emacs_cfg";
+        rev = "331dfe0";
+        sha256 = "1qBv5DFG/c7tLP72hu9yyvXQGYUQ1uKnhrCOb9Hue3A=";
+      };
+      # emacs_src = "/home/sny/sandbox/emacs_cfg";
     in {
       emacs = {
         enable = true;
@@ -48,10 +48,10 @@
       source = pkgs.fetchFromGitHub {
         owner = "mxk-9";
         repo = "nvim";
-        rev = "37e565a";
-        sha256 = "8f4p04D/Yy4mxy6AXftnQgDE8gdEmykYH8SWvA4a1J8=";
-        # sha256 = lib.fakeSha256;
+        rev = "b9b5830";
+        sha256 = "1qBv5DFG/c7tLP72hu9yyvXQGYUQ1uKnhrCOb9Hue3A=";
       };
+      # source = /home/sny/sandbox/nvim_cfg;
     };
   
     home.packages = (with pkgs-unstable; [

@@ -13,14 +13,14 @@
     "awesome" = {
       enable = true;
       recursive = true;
-      # source = pkgs.fetchFromGitHub {
-      #   owner = "mxk-9";
-      #   repo = "awesome-wm";
-      #   rev = "80a2841";
-      #   sha256 = "gPUrMRqLnvnJLYSAYrNLr1zJrPG011fwqQN0AebZtD0=";
-      #   # sha256 = lib.fakeSha256;
-      # };
-      source = /home/sny/sandbox/awesome-wm;
+      source = pkgs.fetchFromGitHub {
+        owner = "mxk-9";
+        repo = "awesome-wm";
+        rev = "4704049";
+        sha256 = "wht2pusDhNct6hoxAPzt3IrB/fbkwoav7Px6uB8yGyk=";
+        # sha256 = lib.fakeSha256;
+      };
+      # source = /home/sny/sandbox/awesome-wm;
       target = "awesome";
     };
   };

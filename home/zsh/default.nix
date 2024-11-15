@@ -89,10 +89,9 @@ in {
   
       d = "dragon -a -x";
   
-      nfu = "nix flake update /home/sny/nixos-cfg";
-      nosri = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --impure";
-      nosru = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --upgrade";
-      nosr = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
+      nori = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg --impure";
+      noru = "nix flake update /home/sny/nixos-cfg && doas nixos-rebuild switch --flake /home/sny/nixos-cfg --upgrade";
+      nor = "doas nixos-rebuild switch --flake /home/sny/nixos-cfg";
   
       nd = "nix develop";
       ndc = "nix develop --command";

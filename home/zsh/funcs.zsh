@@ -68,4 +68,11 @@ mkcd() {
     mkdir -p $1 && cd $1
 }
 
-
+nd-emacs() {
+    if [ ${#@} -eq 0 ]; then
+        echo "nd-emacs <daemon_name>"
+        exit
+    fi
+    nix develop --command emacs --daemon=$1 && emacsclient -nc --socket=$1
+    echo You can close terminal now
+}
