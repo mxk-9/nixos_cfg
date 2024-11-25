@@ -9,8 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -18,7 +18,7 @@
     nixpkgs
     , nixpkgs-unstable
     , home-manager
-    # , nix-ld
+    , nix-on-droid
     , ...
   }@inputs: let
     system = "x86_64-linux";
@@ -60,10 +60,13 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/${system.name}
-          # nix-ld.nixosModules.nix-ld
-          # { programs.nix-ld.enable = true; }
         ] ++ homeModule;
       };
     }) systems);
+
+    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+      pkgs = import nixpkgs { system = "aarch64-linux"; };
+      modules = [ ./nix-on-droid.nix ];
+    };
   };
 }

@@ -67,7 +67,22 @@
         };
       })
     ];
-    environment.systemPackages = [ pkgs.mpv ];
+
+    environment = {
+      etc = {
+        "mpv/mpv.conf".text = ''
+          ytdl-format=bestvideo[height<=?720]+bestaudio/best
+        '';
+
+        "mpv/input.conf".text = ''
+          F     script-binding quality_menu/video_formats_toggle
+          Alt+f script-binding quality_menu/audio_formats_toggle
+          r     cycle_values   video-rotate 90 180 270 0
+        '';
+      };
+
+      systemPackages = [ pkgs.mpv ];
+    };
   };
 
   distrobox_cfg = {

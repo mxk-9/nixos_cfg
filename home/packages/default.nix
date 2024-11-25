@@ -45,13 +45,13 @@
     };
   
     xdg.configFile.nvim = {
-      source = pkgs.fetchFromGitHub {
-        owner = "mxk-9";
-        repo = "nvim";
-        rev = "b9b5830";
-        sha256 = "1qBv5DFG/c7tLP72hu9yyvXQGYUQ1uKnhrCOb9Hue3A=";
-      };
-      # source = /home/sny/sandbox/nvim_cfg;
+      # source = pkgs.fetchFromGitHub {
+      #   owner = "mxk-9";
+      #   repo = "nvim";
+      #   rev = "b9b5830";
+      #   sha256 = "fZU7M5gFoqjotTOKAuy05RQgaqvVrG682QZVuKOuLy0=";
+      # };
+      source = /home/sny/sandbox/nvim_cfg;
     };
   
     home.packages = (with pkgs-unstable; [
@@ -139,18 +139,30 @@
     ];
   };
 
-  net = {
+  net = let
+    rtorrent = {
+      home = {
+        file.rtorrent = {
+          enable = true;
+          target = ".rtorrent.rc";
+          source = ./rtorrent.rc;
+        };
+        packages = [ pkgs.rtorrent ];
+      };
+    };
+  in {
     home.packages = with pkgs; [
       telegram-desktop
-      qbittorrent
       vesktop
       firefox
     ];
+
+    imports = [ rtorrent ];
   };
 
   gfxVid = {
     home.packages = with pkgs; [
-      krita
+      gimp
       kdenlive
       blender
       gwenview

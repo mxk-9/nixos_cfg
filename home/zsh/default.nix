@@ -79,11 +79,9 @@ in {
   
       mk = "mkdir -p";
   
+      mpv = "mpv --config-dir=/etc/mpv/";
       mpvn = "mpv --no-video";
       mpvf = "mpv --fullscreen";
-      flake_lock = "cp -v /home/sny/nixos-cfg/flake.lock";
-  
-      gv = "gwenview";
   
       ds = "doas";
   

@@ -41,6 +41,7 @@ let
     };
   };
 
+
 in {
   home.packages = with pkgs; [
     duckstation
@@ -51,6 +52,12 @@ in {
     # openmw
     # srb2
     # xonotic
+    # (pkgs.callPackage 
+    #   /home/sny/sandbox/VoxelEngine-Cpp/default.nix {
+    #   inherit pkgs;
+    #   fetchurl = builtins.fetchurl;
+    #   }
+    # )
   ];
 
   imports = [
