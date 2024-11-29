@@ -1,8 +1,6 @@
-{ pkgs, pkgs-unstable, lib, ... }: let
-  editor_base = with pkgs-unstable; [
-    nixd
-    nixdoc
-  ];
+{ pkgs, pkgs-unstable, lib, ... }:
+let
+  editor_base = with pkgs-unstable; [ nixd nixdoc nixfmt-classic ];
 
   emacs_cfg = {
     home.file = let
@@ -34,7 +32,7 @@
       ghostscript # For doc view
     ]) ++ editor_base;
   };
-  
+
   nvim = {
     programs.neovim = {
       enable = true;
@@ -43,7 +41,7 @@
       vimAlias = true;
       vimdiffAlias = true;
     };
-  
+
     xdg.configFile.nvim = {
       # source = pkgs.fetchFromGitHub {
       #   owner = "mxk-9";
@@ -53,7 +51,7 @@
       # };
       source = /home/sny/sandbox/nvim_cfg;
     };
-  
+
     home.packages = (with pkgs-unstable; [
       ripgrep
       jsonnet-language-server
@@ -62,71 +60,81 @@
       lua
     ]) ++ editor_base;
   };
-  
+
   helix = {
     programs.helix = {
       enable = true;
       extraPackages = with pkgs; [ dprint nil ];
       languages = {
         language = [
-          { name = "markdown"
-          ; formatter = {
-            command = "dprint";
-            args = [ "fmt" "--stding" "md" ];
-            }
-          ;}
-    
-          { name = "cpp"
-          ; auto-format = false
-          ; file-types = [ "cpp" "h" "hpp" "cxx" ]
-          ; language-servers = [ "clangd" ]
-          ; indent = { tab-width = 2; unit = "  ";}
-          ;}
-    
-          { name = "lua"
-          ; indent = { tab-width = 4; unit = "    "; }
-          ;}
+          {
+            name = "markdown";
+            formatter = {
+              command = "dprint";
+              args = [ "fmt" "--stding" "md" ];
+            };
+          }
+
+          {
+            name = "cpp";
+            auto-format = false;
+            file-types = [ "cpp" "h" "hpp" "cxx" ];
+            language-servers = [ "clangd" ];
+            indent = {
+              tab-width = 2;
+              unit = "  ";
+            };
+          }
+
+          {
+            name = "lua";
+            indent = {
+              tab-width = 4;
+              unit = "    ";
+            };
+          }
         ];
       };
-    
+
       settings = {
         theme = "bogster";
         keys.normal = {
-          backspace = { t = ":lsp-restart"; s = ":lsp-stop"; };
+          backspace = {
+            t = ":lsp-restart";
+            s = ":lsp-stop";
+          };
           F1 = {
             n = ":set soft-wrap.enable false";
             N = ":set soft-wrap.enable true";
             t = ":set smart-tab.enable false";
             T = ":set smart-tab.enable true";
           };
-    
+
           F2 = {
             b = ":buffer-close";
             B = ":buffer-close!";
             a = ":buffer-close-all";
             A = ":buffer-close-all!";
           };
-    
+
           esc = [ "collapse_selection" "keep_primary_selection" ];
         };
-    
+
         editor = {
           scrolloff = 1;
           scroll-lines = 5;
           shell = [ "zsh" "-c" ];
           soft-wrap.enable = true;
           bufferline = "multiple";
-          line-number= "relative";
+          line-number = "relative";
           cursorline = true;
-    
+
           cursor-shape = {
             insert = "bar";
             select = "underline";
           };
-    
-          lsp = {
-            display-messages = true;
-          };
+
+          lsp = { display-messages = true; };
         };
       };
     };
@@ -151,11 +159,7 @@
       };
     };
   in {
-    home.packages = with pkgs; [
-      telegram-desktop
-      vesktop
-      firefox
-    ];
+    home.packages = with pkgs; [ telegram-desktop vesktop firefox ];
 
     imports = [ rtorrent ];
   };
@@ -172,12 +176,8 @@
   };
 
   media = {
-    home.packages = (with pkgs; [
-      playerctl
-      songrec
-    ]) ++ (with pkgs-unstable; [
-      yt-dlp
-    ]);
+    home.packages = (with pkgs; [ playerctl songrec ])
+      ++ (with pkgs-unstable; [ yt-dlp ]);
   };
 
   kitty = {
@@ -211,23 +211,27 @@
       mouse = true;
       resizeAmount = 1;
       terminal = "screen-256color";
-    
+
       # i3wm plugin(i dunno) tilish
       plugins = with pkgs.tmuxPlugins; [
         onedark-theme
-    
+
         prefix-highlight
-    
-        { plugin = pain-control
-        ; extraConfig = ''
-          set-option -g @pane_resize "1"
-        '';}
-    
-        { plugin = continuum
-        ; extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '60' # minutes
-        '';}
+
+        {
+          plugin = pain-control;
+          extraConfig = ''
+            set-option -g @pane_resize "1"
+          '';
+        }
+
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '60' # minutes
+          '';
+        }
       ];
     };
   };

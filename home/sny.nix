@@ -7,6 +7,5 @@
       ./wm
       ./packages
     ];
-
   };
 }
