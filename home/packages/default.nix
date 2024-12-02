@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, lib, ... }:
+{ pkgs, pkgs-unstable, lib, isMobile, ... }:
 let
   editor_base = with pkgs-unstable; [ nixd nixdoc nixfmt-classic ];
 
@@ -236,7 +236,14 @@ let
     };
   };
 
-in {
+  mobile = {
+    imports = [
+      helix
+      tmux
+    ];
+  };
+
+  pc = {
   imports = [
     ./games.nix
     gfxVid
@@ -245,8 +252,11 @@ in {
     office
     emacs_cfg
     nvim
-    # helix
     kitty
     tmux
   ];
+  };
+
+in {
+  imports = if isMobile then [ mobile ] else [ pc ];
 }
