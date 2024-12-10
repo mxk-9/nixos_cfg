@@ -27,9 +27,7 @@ let
   };
 
   df = {
-    home.packages = with pkgs; [
-      dwarf-fortress
-    ];
+    home.packages = with pkgs; [ dwarf-fortress ];
 
     xdg.desktopEntries.df = {
       name = "Dwarf Fortress";
@@ -41,7 +39,6 @@ let
     };
   };
 
-
 in {
   home.packages = with pkgs; [
     duckstation
@@ -49,7 +46,7 @@ in {
     flycast
     # minetest
     # rpcs3
-    # openmw
+    openmw
     # srb2
     # xonotic
     # (pkgs.callPackage 

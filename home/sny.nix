@@ -1,4 +1,4 @@
-{ pkgs, lib, pkgs-unstable, ...}: {
+{ pkgs, lib, pkgs-unstable, ... }: {
   home-manager.users.sny = {
     home.stateVersion = "24.05";
 
@@ -7,7 +7,7 @@
       ./wm
       (import ./packages {
         isMobile = false;
-        inherit pkgs lib pkgs-unstable;
+        inherit pkgs pkgs-unstable lib;
       })
     ];
   };
